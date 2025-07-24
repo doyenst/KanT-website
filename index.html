@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,34 +6,46 @@
     <title>KanT Iced Tea</title>
     <style>
         body {
-            background-color: #111;
-            color: #fff;
+            background-color: #0d0d0d;
+            color: #00ffcc;
             font-family: 'Arial', sans-serif;
             text-align: center;
             padding: 40px;
         }
         h1 {
             font-size: 3em;
-            text-transform: uppercase;
-            background: linear-gradient(to right, limegreen, cyan);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite alternate;
         }
-        .tagline {
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00ffcc; }
+            to { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
+        }
+        img {
+            width: 200px;
+            margin: 20px auto;
+            display: block;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .button {
+            background-color: #003322;
+            border: none;
+            color: white;
+            padding: 15px 30px;
             font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        .can {
-            max-width: 300px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px limegreen;
-            margin-top: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00ffcc;
         }
     </style>
 </head>
 <body>
-    <h1>KanT Iced Tea</h1>
-    <p class="tagline">Healthy. Graffiti-style. Refreshing. Always $1.</p>
-    <img class="can" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/AriZona_Green_Tea_Can.jpg" alt="KanT Green Tea Can">
+    <img src="logo.png" alt="KanT Logo">
+    <h1>KANT ICED TEA</h1>
+    <p>Healthy. Graffiti-style. Refreshing. Always $1.</p>
+    <button class="button">Order Now</button>
 </body>
 </html>
