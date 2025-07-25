@@ -7,66 +7,147 @@
   <title>KanT Iced Tea</title>
   <style>
     body {
-      background-color: #f9f9f9;
       font-family: Arial, sans-serif;
-      text-align: center;
+      background: #e3fcef;
+      color: #333;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
+
     header {
-      background: #2b2b2b;
-      color: #fff;
+      background: #28a745;
       padding: 20px;
-      font-size: 2em;
-      letter-spacing: 2px;
+      color: white;
+      text-align: center;
+      animation: fadeInDown 1.5s ease;
     }
-    .menu {
-      padding: 20px;
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
     }
-    .item {
-      margin: 20px auto;
-      padding: 20px;
-      background: #e0ffe0;
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+
+    .logo {
+      width: 120px;
+      animation: shimmer 3s infinite;
     }
-    .pay-options {
+
+    nav {
+      text-align: center;
       margin-top: 20px;
     }
-    .pay-options a {
-      display: block;
-      margin: 5px auto;
-      text-decoration: none;
+
+    nav a {
+      background: #28a745;
       color: white;
-      background: #0070ba;
-      padding: 10px;
-      border-radius: 6px;
-      width: 200px;
+      text-decoration: none;
+      margin: 10px;
+      padding: 10px 20px;
+      display: inline-block;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
     }
-    .note {
-      font-size: 0.9em;
-      margin-top: 10px;
-      color: #444;
+
+    nav a:hover {
+      transform: scale(1.1);
+    }
+
+    .menu {
+      text-align: center;
+      margin: 40px 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    .menu-item {
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+
+    .payment-links {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .payment-links a {
+      display: inline-block;
+      background: #ffc107;
+      color: black;
+      margin: 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .payment-links a:hover {
+      background: #e0a800;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #28a745;
+      color: white;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shimmer {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <header>KanT Iced Tea</header>
-  <div class="menu">
+  <header>
+    <img src="logo.png" alt="KanT Logo" class="logo" />
+    <h1>KanT Iced Tea</h1>
+  </header>
+
+  <nav>
+    <a href="#menu">Order Now</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="menu" class="menu">
     <h2>Menu</h2>
-    <div class="item">
-      <strong>Black Tea - $3</strong>
-    </div>
-    <div class="item">
-      <strong>Green Tea - $3</strong>
-    </div>
-    <div class="pay-options">
-      <a href="https://www.paypal.me/Iamdoyen/3" target="_blank">Pay $3 with PayPal</a>
-      <a href="https://cash.app/$findtheself" target="_blank" style="background:#00c244;">Pay with Cash App</a>
-      <a href="#" style="background:#5e60ce;">Pay with Step: $doyen</a>
-      <div class="note">*Only delivering in Coatesville, on foot or car</div>
-    </div>
-  </div>
+    <div class="menu-item">Green Tea - $3</div>
+    <div class="menu-item">Black Tea - $3</div>
+    <p><strong>Only available in Coatesville. Delivery by foot or car.</strong></p>
+  </section>
+
+  <section class="payment-links">
+    <h2>Pay Now</h2>
+    <a href="https://www.paypal.me/Iamdoyen" target="_blank">PayPal</a>
+    <a href="https://cash.app/$findtheself" target="_blank">Cash App</a>
+    <p>Or use Step: <strong>$doyen</strong></p>
+  </section>
+
+  <section id="contact" class="menu">
+    <h2>Contact Info</h2>
+    <p>Phone: 484-753-7531</p>
+    <p>Email: doyenthefirst@gmail.com</p>
+    <p>Instagram: <a href="https://www.instagram.com/kanticedtea" target="_blank">@kanticedtea</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 KanT Iced Tea. All rights reserved.
+  </footer>
 </body>
 </html>
