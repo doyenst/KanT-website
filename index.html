@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +16,7 @@
       background-color: #000;
       color: #0f0;
       font-family: 'Rubik Spray Paint', cursive;
+      overflow-x: hidden;
     }
     header {
       padding: 20px;
@@ -57,9 +60,6 @@
       background: #111;
       border-radius: 10px;
     }
-    .menu h2 {
-      margin-bottom: 10px;
-    }
     .menu-item {
       background: #000;
       padding: 10px;
@@ -100,9 +100,30 @@
     .terms {
       background: linear-gradient(to bottom, #000, #111);
     }
+    #cursor-tag {
+      position: absolute;
+      color: #f0f;
+      font-size: 1.5em;
+      pointer-events: none;
+      font-family: 'Rubik Spray Paint', cursive;
+      text-shadow: 0 0 10px #f0f;
+    }
+    #smoke-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.2;
+    }
   </style>
 </head>
 <body>
+  <img id="smoke-bg" src="smoke.gif" alt="Smoke background" />
+
+  <div id="cursor-tag">KanT</div>
+
   <header>
     <img src="logo.png" alt="KanT Logo" height="50">
     <nav>
@@ -111,6 +132,7 @@
       <a href="#terms">Terms</a>
     </nav>
   </header>
+
   <div class="hero">
     <h1>KANT ICED TEA</h1>
     <p>Healthy. Graffiti-style. Refreshing. Always $3.</p>
@@ -133,15 +155,21 @@
         </div>
       </div>
     </div>
-  </div>  <div class="contact" id="contact">
+  </div>
+
+  <div class="contact" id="contact">
     <h2>Contact Info</h2>
     <p>Phone: 484-753-7531</p>
     <p>Email: doyenthefirst@gmail.com</p>
     <p>Instagram: @kanticedtea</p>
-  </div>  <div class="second-page" id="second">
+  </div>
+
+  <div class="second-page" id="second">
     <h2>Second Page</h2>
     <p>Owned by boy with a vision of teas. Deliver only in Coatesville. I'll be delivering on foot or car.</p>
-  </div>  <div class="terms" id="terms">
+  </div>
+
+  <div class="terms" id="terms">
     <h2 class="neon-blink">Terms and Service and Conditions</h2>
     <p>
       By using this site, you agree that KanT Iced Tea is a small independent delivery-based tea brand.
@@ -150,5 +178,13 @@
       All content, branding, and design is copyrighted © 2025 KanT Iced Tea.
     </p>
   </div>
+
+  <script>
+    const cursorTag = document.getElementById('cursor-tag');
+    document.addEventListener('mousemove', (e) => {
+      cursorTag.style.left = e.pageX + 'px';
+      cursorTag.style.top = e.pageY + 'px';
+    });
+  </script>
 </body>
 </html>
