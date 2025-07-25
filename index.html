@@ -1,134 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KanT Iced Tea</title>
-  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #e7fbe7;
-      color: #222;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: #2c6e49;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-family: 'Permanent Marker', cursive;
-      animation: fadeIn 2s ease-in-out;
-    }
-    h1 {
-      font-size: 3rem;
-      text-shadow: 2px 2px #000;
-      animation: shimmer 4s infinite linear;
-    }
-    nav {
-      background: #519872;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-      padding: 0.5rem 1rem;
-    }
-    nav a:hover {
-      background: #397256;
-      border-radius: 5px;
-    }
-    .content {
-      text-align: center;
-      padding: 2rem;
-    }
-    .menu {
-      display: none;
-      margin-top: 2rem;
-    }
-    .menu-item {
-      margin-bottom: 1rem;
-    }
-    .menu-item button {
-      background: #3b8c62;
-      color: white;
-      border: none;
-      padding: 0.7rem 1.2rem;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }
-    .menu-item button:hover {
-      background: #2e6d4d;
-    }
-    footer {
-      text-align: center;
-      background: #2c6e49;
-      color: white;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes shimmer {
-      0% { text-shadow: 0 0 10px #a8f0a2; }
-      50% { text-shadow: 0 0 20px #76e276; }
-      100% { text-shadow: 0 0 10px #a8f0a2; }
-    }
-  </style>
+  <meta name="description" content="KanT – A visionary iced tea brand. Green Tea and Black Tea, healthy and bold flavors. Order in Coatesville.">
+  <meta name="keywords" content="KanT, iced tea, green tea, black tea, Coatesville, healthy drinks, urban tea, graffiti branding">
+  <meta name="author" content="Doyen">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>KanT Iced Tea</h1>
-    <p>Freshly brewed. Delivered in Coatesville.</p>
+    <h1>Welcome to KanT Iced Tea</h1>
+    <p>Healthy. Bold. Visionary.</p>
+    <nav>
+      <a href="menu.html">Order Now</a>
+      <a href="second.html">Second Page</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms & Services</a>
+    </nav>
   </header>
-
-  <nav>
-    <a href="#" onclick="toggleMenu()">Order Now</a>
-    <a href="contact.html">Contact</a>
-    <a href="secondpage.html">Second Page</a>
-    <a href="https://www.instagram.com/kanticedtea" target="_blank">Instagram</a>
-  </nav>
-
-  <div class="content">
-    <h2>Healthy and Refreshing Flavors</h2>
-    <p>Each can is $3.00 – order now and support a young visionary!</p>
-    <div class="menu" id="menu">
-      <div class="menu-item">
-        <h3>Black Tea</h3>
-        <p>Smooth, strong, and delicious.</p>
-        <button onclick="window.open('https://cash.app/$findtheself','_blank')">Pay with Cash App</button>
-        <button onclick="window.open('https://www.paypal.me/Iamdoyen','_blank')">Pay with PayPal</button>
-        <button onclick="window.open('https://step.com/$doyen','_blank')">Pay with Step</button>
-      </div>
-      <div class="menu-item">
-        <h3>Green Tea</h3>
-        <p>Refreshing, light, and healthy.</p>
-        <button onclick="window.open('https://cash.app/$findtheself','_blank')">Pay with Cash App</button>
-        <button onclick="window.open('https://www.paypal.me/Iamdoyen','_blank')">Pay with PayPal</button>
-        <button onclick="window.open('https://step.com/$doyen','_blank')">Pay with Step</button>
-      </div>
-      <p><strong>Note:</strong> Only delivering in Coatesville by foot or car.</p>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 KanT Iced Tea. All rights reserved.
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
 </body>
 </html>
