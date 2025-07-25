@@ -3,23 +3,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KanT Iced Tea</title>
-  <meta name="description" content="KanT – A visionary iced tea brand. Green Tea and Black Tea, healthy and bold flavors. Order in Coatesville.">
-  <meta name="keywords" content="KanT, iced tea, green tea, black tea, Coatesville, healthy drinks, urban tea, graffiti branding">
-  <meta name="author" content="Doyen">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2b2b2b;
+      color: #fff;
+      padding: 20px;
+      font-size: 2em;
+      letter-spacing: 2px;
+    }
+    .menu {
+      padding: 20px;
+    }
+    .item {
+      margin: 20px auto;
+      padding: 20px;
+      background: #e0ffe0;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+    .pay-options {
+      margin-top: 20px;
+    }
+    .pay-options a {
+      display: block;
+      margin: 5px auto;
+      text-decoration: none;
+      color: white;
+      background: #0070ba;
+      padding: 10px;
+      border-radius: 6px;
+      width: 200px;
+    }
+    .note {
+      font-size: 0.9em;
+      margin-top: 10px;
+      color: #444;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to KanT Iced Tea</h1>
-    <p>Healthy. Bold. Visionary.</p>
-    <nav>
-      <a href="menu.html">Order Now</a>
-      <a href="second.html">Second Page</a>
-      <a href="contact.html">Contact</a>
-      <a href="terms.html">Terms & Services</a>
-    </nav>
-  </header>
+  <header>KanT Iced Tea</header>
+  <div class="menu">
+    <h2>Menu</h2>
+    <div class="item">
+      <strong>Black Tea - $3</strong>
+    </div>
+    <div class="item">
+      <strong>Green Tea - $3</strong>
+    </div>
+    <div class="pay-options">
+      <a href="https://www.paypal.me/Iamdoyen/3" target="_blank">Pay $3 with PayPal</a>
+      <a href="https://cash.app/$findtheself" target="_blank" style="background:#00c244;">Pay with Cash App</a>
+      <a href="#" style="background:#5e60ce;">Pay with Step: $doyen</a>
+      <div class="note">*Only delivering in Coatesville, on foot or car</div>
+    </div>
+  </div>
 </body>
 </html>
