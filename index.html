@@ -2,44 +2,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>KanT Iced Tea</title>
-    <style>
-        body {
-            background-color: black;
-            color: #00ff00;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            text-align: center;
-            margin: 0;
-        }
-        h1 {
-            color: lime;
-            text-shadow: 0 0 10px lime;
-        }
-        nav {
-            background-color: black;
-            padding: 1em;
-        }
-        nav a {
-            margin: 0 15px;
-            color: lime;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KanT Iced Tea</title>
+  <style>
+    body {
+      background-color: black;
+      color: #39ff14;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .nav a {
+      color: #39ff14;
+      text-decoration: none;
+    }
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 10px #39ff14;
+    }
+    .order {
+      margin: 20px auto;
+      border: 2px solid #39ff14;
+      width: 200px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">KanT Logo</a>
-        <a href="contact.html">Contact</a>
-        <a href="terms.html">Terms</a>
-        <a href="second.html">Second Page</a>
-        <a href="kant-chat.html">KanT Chat</a>
-    </nav>
-    <h1>KANT ICED TEA</h1>
-    <p>Healthy. Graffiti-style. Refreshing. Always $3.</p>
+  <div class="nav">
+    <a href="index.html">KanT Logo</a>
+    <a href="contact.html">Contact</a>
+    <a href="terms.html">Terms</a>
+    <a href="second.html">Second Page</a>
+    <a href="kant-chat.html">KanT Chat</a>
+  </div>
+
+  <h1>KANT ICED TEA</h1>
+  <p>Healthy. Graffiti-style. Refreshing. Always $3.</p>
+
+  <div class="order">ORDER NOW</div>
 </body>
 </html>
