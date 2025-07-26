@@ -1,19 +1,18 @@
 
 body {
+  background-color: black;
+  color: lime;
   font-family: Arial, sans-serif;
-  background-color: #d4f4dd;
-  margin: 0;
-  padding: 0;
-}
-header {
-  background-color: #2e8b57;
-  color: white;
-  padding: 20px;
   text-align: center;
+  padding: 50px;
 }
-nav a {
-  margin: 0 15px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+
+button {
+  background: black;
+  color: lime;
+  border: 2px solid lime;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-top: 20px;
+  border-radius: 8px;
 }
