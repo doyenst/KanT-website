@@ -1,31 +1,48 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Order KanT Iced Tea</title>
+  <title>Place Your Order</title>
   <style>
     body {
       background-color: black;
-      color: lime;
-      font-family: fantasy;
-      padding: 20px;
+      color: #00ff00;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding-top: 60px;
     }
-    input, button {
+
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px lime;
+    }
+
+    input, select, button {
+      font-size: 1.2em;
       padding: 10px;
       margin: 10px;
+      border: 2px solid #00ff00;
+      background-color: black;
+      color: #00ff00;
       border-radius: 5px;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    button:hover {
+      background-color: #00ff00;
+      color: black;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h2>Place Your Order</h2>
+  <h1>Place Your Order</h1>
   <form>
-    <label>Your Name:</label><br>
-    <input type="text" name="name" /><br>
-    <label>Flavor:</label><br>
-    <select name="flavor">
-      <option>Green Tea</option>
-      <option>Black Tea</option>
+    <input type="text" placeholder="Your Name" required><br>
+    <select>
+      <option value="green">Green Tea</option>
+      <option value="black">Black Tea</option>
     </select><br>
     <button type="submit">Submit</button>
   </form>
