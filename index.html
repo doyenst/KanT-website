@@ -186,5 +186,21 @@
       cursorTag.style.top = e.pageY + 'px';
     });
   </script>
+
+<audio id="kantAudio" autoplay loop>
+  <source src="kant_music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<button onclick="toggleMusic()" style="position:fixed;bottom:10px;left:10px;padding:10px 15px;background:#0f0;border:none;color:#000;font-weight:bold;border-radius:10px;">🎵 Toggle Music</button>
+<script>
+  const music = document.getElementById("kantAudio");
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script>
 </body>
 </html>
