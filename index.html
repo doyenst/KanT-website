@@ -1,52 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KanT Iced Tea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: black;
-      color: #39ff14;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      text-align: center;
+      margin: 0;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Rubik Spray Paint', cursive;
     }
-    .nav {
+    header {
+      padding: 20px;
       display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-      font-weight: bold;
+      justify-content: space-between;
+      align-items: center;
+      background: #000;
     }
-    .nav a {
-      color: #39ff14;
+    header nav a {
+      color: #0f0;
+      margin: 0 10px;
       text-decoration: none;
+      font-size: 1.2em;
     }
-    h1 {
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .hero h1 {
       font-size: 3em;
-      text-shadow: 0 0 10px #39ff14;
+      text-shadow: 0 0 10px #0f0;
     }
-    .order {
-      margin: 20px auto;
-      border: 2px solid #39ff14;
-      width: 200px;
-      padding: 10px;
+    .order-button {
+      padding: 15px 30px;
+      background: #000;
+      color: #0f0;
+      border: 2px solid #0f0;
+      border-radius: 10px;
       cursor: pointer;
+      text-shadow: 0 0 5px #0f0;
+    }
+    audio {
+      display: block;
+      margin: 20px auto;
     }
   </style>
 </head>
 <body>
-  <div class="nav">
-    <a href="index.html">KanT Logo</a>
-    <a href="contact.html">Contact</a>
-    <a href="terms.html">Terms</a>
-    <a href="second.html">Second Page</a>
-    <a href="kant-chat.html">KanT Chat</a>
+  <header>
+    <div><strong>KanT Logo</strong></div>
+    <nav>
+      <a href="#contact">Contact</a>
+      <a href="kant-chat.html">KanT Chat</a>
+      <a href="#terms">Terms</a>
+    </nav>
+  </header>
+  <div class="hero">
+    <h1>Welcome to KanT Iced Tea</h1>
+    <button class="order-button" onclick="alert('Ordering coming soon!')">Order Now</button>
+    <audio autoplay loop controls>
+      <source src="music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
   </div>
-
-  <h1>KANT ICED TEA</h1>
-  <p>Healthy. Graffiti-style. Refreshing. Always $3.</p>
-
-  <div class="order">ORDER NOW</div>
 </body>
 </html>
