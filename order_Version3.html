@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order KanT Iced Tea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #39FF14;
+      font-family: 'Rubik Spray Paint', cursive, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    nav {
+      background: #111;
+      padding: 16px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 12px #090;
+    }
+    nav a {
+      color: #39FF14;
+      margin: 0 18px;
+      text-decoration: none;
+      font-size: 1.2em;
+      text-shadow: 0 0 8px #39FF14;
+      transition: color 0.2s;
+      font-family: 'Rubik Spray Paint', cursive;
+    }
+    nav a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .section {
+      background: #111;
+      border-radius: 18px;
+      padding: 28px 18px;
+      margin: 24px auto;
+      max-width: 700px;
+      box-shadow: 0 0 18px #39FF14;
+    }
+    .section h2 {
+      text-shadow: 0 0 10px #39FF14;
+      font-size: 2em;
+      margin-bottom: 12px;
+      color: #39FF14;
+      letter-spacing: 2px;
+    }
+    .section p, .section label {
+      color: #fff;
+      font-size: 1.13em;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .neon-blink-warning {
+      width: 100vw;
+      display: block;
+      text-align: center;
+      font-size: 1.22em;
+      color: #39FF14;
+      font-weight: bold;
+      padding: 16px 8px 10px 8px;
+      text-shadow: 0 0 10px #39FF14, 0 0 24px #39FF14, 0 0 36px #fff;
+      background: #1a1a1a;
+      border-bottom: 2px solid #39FF14;
+      animation: blink-neon 1.5s infinite;
+      letter-spacing: 1px;
+    }
+    @keyframes blink-neon {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .responsibility-disclaimer {
+      margin:16px 0 12px 0;
+      font-size:1.09em;
+      color:#fff;
+      text-shadow:0 0 4px #39FF14;
+      background: rgba(39,255,20,0.09);
+      padding: 11px 13px;
+      border-radius: 13px;
+      font-weight: normal;
+    }
+    .instagram-message {
+      margin:20px 0;
+      font-size:1.2em;
+      color:#39FF14;
+      font-weight:bold;
+      text-shadow:0 0 8px #39FF14;
+    }
+    input, select, textarea {
+      background: #222;
+      color: #39FF14;
+      border: 2px solid #39FF14;
+      border-radius: 7px;
+      padding: 8px;
+      font-size: 1em;
+      margin-bottom: 15px;
+      width: 90%;
+      max-width: 420px;
+      font-family: Arial, sans-serif;
+    }
+    button[type="submit"] {
+      background: #39FF14;
+      color: #000;
+      border: none;
+      font-size: 1.1em;
+      border-radius: 8px;
+      padding: 12px 32px;
+      font-weight: bold;
+      box-shadow: 0 0 12px #39FF14;
+      cursor: pointer;
+      margin-top: 12px;
+      text-shadow: 0 0 5px #39FF14;
+      transition: all 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: #fff;
+      color: #39FF14;
+      box-shadow: 0 0 20px #39FF14;
+    }
+    @media (max-width: 700px) {
+      nav a { font-size: 1em; }
+      .section { padding: 16px 4px; }
+      .section h2 { font-size: 1.3em; }
+      .neon-blink-warning { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="flavors.html">Flavors</a>
+    <a href="order.html">Order</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+  <span class="neon-blink-warning">
+    📲 Message me on <a href="https://instagram.com/kanticedtea" target="_blank" style="color:#39FF14; font-weight:bold; text-decoration:underline;">Instagram</a> to give your address! <span style="font-size:1.3em;">⚠️</span><br>
+    <span>
+      If you don’t give your address through Instagram, or Cash App with a text of your address, I won’t be responsible for not giving you an order.<br>
+      You must provide your delivery address for delivery. If you don’t, I am not responsible for missed orders.
+    </span>
+  </span>
+  <div class="section">
+    <h2>Order KanT Iced Tea</h2>
+    <p>
+      <b>Contact:</b><br>
+      <span style="color:#39FF14;">
+        Email: <a href="mailto:doyenthefirst@gmail.com" style="color:#39FF14;">doyenthefirst@gmail.com</a><br>
+        Phone: <a href="tel:4847537531" style="color:#39FF14;">484-753-7531</a><br>
+        Instagram: <a href="https://instagram.com/kanticedtea" target="_blank" style="color:#39FF14;">@kanticedtea</a>
+      </span>
+    </p>
+    <form>
+      <label for="name">Your Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="flavor">Choose Flavor:</label><br>
+      <select id="flavor" name="flavor" required>
+        <option value="">Select...</option>
+        <option value="Green Tea">Green Tea</option>
+        <option value="Black Tea">Black Tea</option>
+        <option value="Lemon Honey Black Tea">Lemon Honey Black Tea</option>
+        <option value="Peach Green Tea">Peach Green Tea</option>
+        <option value="Hibiscus Berry">Hibiscus Berry</option>
+        <option value="Mango Citrus">Mango Citrus</option>
+        <option value="Sweet Black Tea">Sweet Black Tea</option>
+      </select><br>
+      <label for="quantity">Quantity (number of cans):</label><br>
+      <input type="number" id="quantity" name="quantity" min="1" required><br>
+      <label for="notes">Notes or Special Requests:</label><br>
+      <textarea id="notes" name="notes" rows="3"></textarea><br>
+      <div class="instagram-message">
+        📲 Message me on <a href="https://instagram.com/kanticedtea" target="_blank" style="color:#39FF14; font-weight:bold; text-decoration:underline;">Instagram</a> to give your address! <span style="font-size:1.3em;">⚠️</span>
+      </div>
+      <div class="responsibility-disclaimer">
+        <b>Disclaimer:</b> If you don’t give your address through <span style="color:#39FF14;">Instagram</span>, or <span style="color:#39FF14;">Cash App</span> with a text of your address, I won’t be responsible for not giving you an order.<br>
+        You must provide your delivery address for delivery. If you don’t, I am not responsible for missed orders.
+      </div>
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+  <!-- Neon mouse/finger-following cursor -->
+  <style>
+    .neon-cursor {
+      position: fixed;
+      pointer-events: none;
+      left: 0; top: 0;
+      transform: translate(-50%, -50%);
+      font-family: 'Rubik Spray Paint', cursive, Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #39FF14;
+      text-shadow:
+        0 0 6px #39FF14,
+        0 0 12px #39FF14,
+        0 0 20px #fff,
+        0 0 48px #39FF14;
+      opacity: 0.92;
+      z-index: 9999;
+      white-space: nowrap;
+      user-select: none;
+      filter: drop-shadow(0 0 6px #39FF14);
+      transition: opacity 0.2s;
+    }
+  </style>
+  <script>
+    const cursor = document.createElement('div');
+    cursor.className = 'neon-cursor';
+    cursor.innerText = 'kanttea.com';
+    document.body.appendChild(cursor);
+
+    // Desktop mouse tracking
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.opacity = "0.92";
+    });
+
+    // Fade out on mouse leave
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = "0";
+    });
+    document.addEventListener('mouseenter', () => {
+      cursor.style.opacity = "0.92";
+    });
+
+    // Mobile/touch tracking
+    function touchMoveHandler(e) {
+      let touch = e.touches[0];
+      cursor.style.left = `${touch.clientX}px`;
+      cursor.style.top = `${touch.clientY}px`;
+      cursor.style.opacity = "0.92";
+    }
+    document.addEventListener('touchstart', touchMoveHandler);
+    document.addEventListener('touchmove', touchMoveHandler);
+
+    // Fade out cursor on touch end
+    document.addEventListener('touchend', () => {
+      cursor.style.opacity = "0";
+    });
+    document.addEventListener('touchcancel', () => {
+      cursor.style.opacity = "0";
+    });
+  </script>
+</body>
+</html>
