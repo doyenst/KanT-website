@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +6,7 @@
   <title>KanT Iced Tea</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       margin: 0;
       background-color: #000;
@@ -18,75 +14,101 @@
       font-family: 'Rubik Spray Paint', cursive;
       overflow-x: hidden;
     }
-    header {
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #000;
+    nav {
+      background: #111;
+      padding: 16px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 12px #090;
     }
-    header nav a {
+    nav a {
       color: #0f0;
-      margin: 0 10px;
+      margin: 0 18px;
       text-decoration: none;
       font-size: 1.2em;
+      text-shadow: 0 0 5px #0f0;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      text-decoration: underline;
     }
     .hero {
       text-align: center;
-      padding: 50px 20px;
+      padding: 60px 18px 32px 18px;
     }
     .hero h1 {
       font-size: 3em;
-      text-shadow: 0 0 10px #0f0;
+      text-shadow: 0 0 18px #0f0;
+      margin-bottom: 16px;
+      letter-spacing: 3px;
     }
     .hero p {
-      font-size: 1.2em;
-      margin: 20px 0;
+      font-size: 1.3em;
+      margin: 20px 0 36px 0;
+      color: #fff;
+      text-shadow: 0 0 6px #0f0;
     }
     .order-button {
-      padding: 15px 30px;
+      padding: 15px 32px;
       background: #000;
       color: #0f0;
       border: 2px solid #0f0;
       cursor: pointer;
-      font-size: 1em;
+      font-size: 1.1em;
       border-radius: 10px;
       text-shadow: 0 0 5px #0f0;
+      transition: all 0.2s;
+      margin-bottom: 18px;
     }
-    .menu {
-      display: none;
-      margin-top: 20px;
-      padding: 20px;
+    .order-button:hover {
+      background: #0f0;
+      color: #000;
+      box-shadow: 0 0 12px #0f0;
+    }
+    .section {
       background: #111;
-      border-radius: 10px;
+      border-radius: 18px;
+      padding: 28px 18px;
+      margin: 24px auto;
+      max-width: 700px;
+      box-shadow: 0 0 18px #0f0;
     }
-    .menu-item {
-      background: #000;
-      padding: 10px;
-      margin: 5px 0;
-      border: 1px solid #0f0;
-    }
-    .checkout-form input, .checkout-form select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      background: #111;
-      border: 1px solid #0f0;
+    .section h2 {
+      text-shadow: 0 0 10px #0f0;
+      font-size: 2em;
+      margin-bottom: 12px;
       color: #0f0;
+      letter-spacing: 2px;
+    }
+    .section p {
+      color: #fff;
+      font-size: 1.13em;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .pay-buttons {
+      margin: 18px 0 0 0;
     }
     .pay-buttons a {
-      display: block;
-      padding: 10px;
+      display: inline-block;
+      padding: 12px 24px;
       background: #0f0;
       color: #000;
       text-align: center;
       text-decoration: none;
-      margin-top: 10px;
+      margin: 8px 8px 0 0;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1em;
+      box-shadow: 0 0 6px #0f0;
+      transition: background 0.2s;
     }
-    .contact, .second-page, .terms {
-      padding: 40px 20px;
-      background: #111;
-      margin-top: 20px;
+    .pay-buttons a:hover {
+      background: #fff;
+      color: #090;
     }
     .neon-blink {
       color: #0f0;
@@ -95,112 +117,60 @@
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+      50% { opacity: 0.4; }
     }
-    .terms {
-      background: linear-gradient(to bottom, #000, #111);
+    footer {
+      text-align: center;
+      padding: 18px 0 12px 0;
+      background: #111;
+      color: #0f0;
+      font-size: 1em;
+      letter-spacing: 1px;
+      margin-top: 32px;
+      box-shadow: 0 -2px 12px #090;
     }
-    #cursor-tag {
-      position: absolute;
-      color: #f0f;
-      font-size: 1.5em;
-      pointer-events: none;
-      font-family: 'Rubik Spray Paint', cursive;
-      text-shadow: 0 0 10px #f0f;
-    }
-    #smoke-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.2;
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2em; }
+      nav a { font-size: 1em; }
+      .section { padding: 16px 6px; }
+      .section h2 { font-size: 1.3em; }
     }
   </style>
 </head>
 <body>
-  <img id="smoke-bg" src="smoke.gif" alt="Smoke background" />
-
-  <div id="cursor-tag">KanT</div>
-
-  <header>
-    <img src="logo.png" alt="KanT Logo" height="50">
-    <nav>
-      <a href="#contact">Contact</a>
-      <a href="#second">Second Page</a>
-      <a href="#terms">Terms</a>
-    </nav>
-  </header>
-
-  <div class="hero">
-    <h1>KANT ICED TEA</h1>
-    <p>Healthy. Graffiti-style. Refreshing. Always $3.</p>
-    <button class="order-button" onclick="document.querySelector('.menu').style.display='block'">ORDER NOW</button>
-    <div class="menu">
-      <div class="menu-item">GREEN TEA - $3.00</div>
-      <div class="menu-item">BLACK TEA - $3.00</div>
-      <p>Only order in Coatesville. We will be delivering on foot or car.</p>
-      <div class="checkout-form">
-        <input type="text" placeholder="Name">
-        <select>
-          <option value="green">Green Tea</option>
-          <option value="black">Black Tea</option>
-        </select>
-        <input type="number" min="1" placeholder="Quantity">
-        <input type="text" placeholder="Delivery Address">
-        <div class="pay-buttons">
-          <a href="https://cash.app/$findtheself" target="_blank">Pay with Cash App</a>
-          <a href="https://www.paypal.me/Iamdoyen" target="_blank">Pay with PayPal</a>
-        </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="flavors.html">Flavors</a>
+    <a href="order.html">Order</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+  <main>
+    <div class="hero">
+      <h1 class="neon-blink">KanT Iced Tea</h1>
+      <p>Bold, fresh, and local. Delivery only in Coatesville.<br>Order now and enjoy neon vibes in every sip!</p>
+      <a href="order.html" class="order-button">Place Your Order</a>
+    </div>
+    <div class="section">
+      <h2>How to Order</h2>
+      <p>Choose your favorite flavor, fill out the order form, and pay securely.<br><b>Delivery area:</b> Coatesville only.</p>
+      <div class="pay-buttons">
+        <a href="https://cash.app/$findtheself" target="_blank">Pay with Cash App</a>
+        <a href="https://paypal.me/Iamdoyen" target="_blank">Pay with PayPal</a>
       </div>
     </div>
-  </div>
-
-  <div class="contact" id="contact">
-    <h2>Contact Info</h2>
-    <p>Phone: 484-753-7531</p>
-    <p>Email: doyenthefirst@gmail.com</p>
-    <p>Instagram: @kanticedtea</p>
-  </div>
-
-  <div class="second-page" id="second">
-    <h2>Second Page</h2>
-    <p>Owned by boy with a vision of teas. Deliver only in Coatesville. I'll be delivering on foot or car.</p>
-  </div>
-
-  <div class="terms" id="terms">
-    <h2 class="neon-blink">Terms and Service and Conditions</h2>
-    <p>
-      By using this site, you agree that KanT Iced Tea is a small independent delivery-based tea brand.
-      All payments are processed through third-party services (PayPal, Cash App).
-      No refunds or returns. Orders are limited to Coatesville only. We reserve the right to decline or cancel orders.
-      All content, branding, and design is copyrighted © 2025 KanT Iced Tea.
-    </p>
-  </div>
-
-  <script>
-    const cursorTag = document.getElementById('cursor-tag');
-    document.addEventListener('mousemove', (e) => {
-      cursorTag.style.left = e.pageX + 'px';
-      cursorTag.style.top = e.pageY + 'px';
-    });
-  </script>
-
-<audio id="kantAudio" autoplay loop>
-  <source src="kant_music.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-<button onclick="toggleMusic()" style="position:fixed;bottom:10px;left:10px;padding:10px 15px;background:#0f0;border:none;color:#000;font-weight:bold;border-radius:10px;">🎵 Toggle Music</button>
-<script>
-  const music = document.getElementById("kantAudio");
-  function toggleMusic() {
-    if (music.paused) {
-      music.play();
-    } else {
-      music.pause();
-    }
-  }
-</script>
+    <div class="section">
+      <h2>Contact & Social</h2>
+      <p>Questions or feedback? <br>
+        <b>Email:</b> <a href="mailto:doyenthefirst@gmail.com">doyenthefirst@gmail.com</a> <br>
+        <b>Phone:</b> <a href="tel:4847537531">484-753-7531</a> <br>
+        <b>Instagram:</b> <a href="https://instagram.com/kanticedtea" target="_blank">@kanticedtea</a>
+      </p>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 KanT Iced Tea | <a href="terms.html" style="color:#0f0;">Terms</a>
+  </footer>
 </body>
 </html>
