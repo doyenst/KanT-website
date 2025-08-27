@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KanTtea Flavors</title>
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #000;
+      color: #39FF14;
+      font-family: 'Permanent Marker', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.3rem;
+      text-shadow: 0 0 15px #39FF14, 0 0 40px #39FF14;
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+    }
+    .flavor {
+      margin-bottom: 2.5rem;
+      border-bottom: 2px dashed #39FF14;
+      padding-bottom: 1rem;
+    }
+    .flavor:last-child {
+      border-bottom: none;
+    }
+    .flavor-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+      text-shadow: 0 0 8px #39FF14;
+    }
+    .flavor-desc {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+      font-style: italic;
+    }
+    .nutrition, .extra {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: #fff;
+      text-shadow: 0 0 5px #39FF14;
+    }
+    .benefits {
+      margin-top: 3rem;
+      padding: 2rem 1rem 1.5rem 1rem;
+      border-radius: 12px;
+      background: rgba(39,255,20,0.12);
+      box-shadow: 0 0 40px #39FF14;
+    }
+    .benefits-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px #39FF14;
+      letter-spacing: 2px;
+    }
+    .benefit-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .benefit-list li {
+      margin-bottom: 0.9rem;
+      text-shadow: 0 0 10px #39FF14;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 1rem; }
+      h1, .benefits-title { font-size: 1.3rem; }
+      .flavor-title { font-size: 1.1rem; }
+      .benefits { padding: 1rem 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🍵 KanTtea Flavors</h1>
+    <div class="flavor">
+      <div class="flavor-title">1. Green Tea – “Fresh &amp; Clean”</div>
+      <div class="nutrition">Nutrition (per 16 oz can): ~45 calories, 11 g sugar</div>
+    </div>
+    <div class="flavor">
+      <div class="flavor-title">2. Black Tea – “Bold &amp; Smooth”</div>
+      <div class="nutrition">Nutrition (per 16 oz can): ~90 calories, 22 g sugar</div>
+    </div>
+    <div class="flavor">
+      <div class="flavor-title">3. Lemon Honey Black Tea – “Sun Drip”</div>
+      <div class="nutrition">Nutrition (per 16 oz can): ~70 calories, 17 g sugar</div>
+    </div>
+    <div class="flavor">
+      <div class="flavor-title">4. Peach Green Tea – “Peach Fade”</div>
+      <div class="nutrition">Nutrition (per 16 oz can): ~50 calories, 12 g sugar</div>
+    </div>
+    <div class="flavor">
+      <div class="flavor-title">5. Hibiscus Berry – “Crimson Rush”</div>
+      <div class="nutrition">Nutrition (per 16 oz can): ~60 calories, 15 g sugar</div>
+      <div class="extra">Extra: High in Vitamin C &amp; antioxidants</div>
+    </div>
+    <div class="flavor">
+      <div class="flavor-title">6. Mango Citrus – “Mango Voltage”</div>
+      <div class="nutrition">Nutrition (per 16 oz can): ~80 calories, 20 g sugar</div>
+      <div class="extra">Extra: Vitamin C + Potassium</div>
+    </div>
+    <div class="flavor">
+      <div class="flavor-title">7. Sweet Black Tea (Extra Sugar) – “Street Sweet”</div>
+      <div class="nutrition">Nutrition (per 16 oz can): ~95 calories, 23 g sugar</div>
+    </div>
+    <div class="benefits">
+      <div class="benefits-title">📌 Summary of Benefits</div>
+      <ul class="benefit-list">
+        <li><b>Skin:</b> Vitamin C + antioxidants = glow &amp; collagen support.</li>
+        <li><b>Brain:</b> Focus, calm energy, stress reduction.</li>
+        <li><b>Heart &amp; Blood:</b> Supports circulation, healthy blood pressure.</li>
+        <li><b>Bones/Joints:</b> Collagen support, reduced inflammation.</li>
+        <li><b>Immune:</b> Vitamin C + antimicrobial honey = defense boost.</li>
+        <li><b>Metabolism:</b> Helps regulate sugar &amp; weight management.</li>
+        <li><b>Digestion:</b> Smooths stomach, hydration, natural detox.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
