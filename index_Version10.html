@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KanT Iced Tea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Rubik Spray Paint', cursive;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+    nav {
+      background: #111;
+      padding: 16px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 12px #090;
+    }
+    nav a {
+      color: #0f0;
+      margin: 0 18px;
+      text-decoration: none;
+      font-size: 1.2em;
+      text-shadow: 0 0 5px #0f0;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 18px 32px 18px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      text-shadow: 0 0 18px #0f0;
+      margin-bottom: 16px;
+      letter-spacing: 3px;
+    }
+    .hero p {
+      font-size: 1.3em;
+      margin: 20px 0 36px 0;
+      color: #fff;
+      text-shadow: 0 0 6px #0f0;
+    }
+    .order-button, .flavors-button {
+      display: inline-block;
+      padding: 15px 32px;
+      background: #000;
+      color: #0f0;
+      border: 2px solid #0f0;
+      cursor: pointer;
+      font-size: 1.1em;
+      border-radius: 10px;
+      text-shadow: 0 0 5px #0f0;
+      transition: all 0.25s;
+      margin: 0 10px 18px 10px;
+      letter-spacing: 1px;
+    }
+    .order-button:hover, .flavors-button:hover {
+      background: #0f0;
+      color: #000;
+      box-shadow: 0 0 14px #0f0, 0 0 30px #090 inset;
+    }
+    .flavors-button {
+      font-size: 1.25em;
+      font-weight: bold;
+      border-width: 3px;
+      animation: pulseGlow 3.2s infinite;
+    }
+    @keyframes pulseGlow {
+      0%,100% { box-shadow: 0 0 10px #0f0; }
+      50% { box-shadow: 0 0 26px #0f0, 0 0 48px #090; }
+    }
+    .section {
+      background: #111;
+      border-radius: 18px;
+      padding: 28px 18px;
+      margin: 24px auto;
+      max-width: 700px;
+      box-shadow: 0 0 18px #0f0;
+    }
+    .section h2 {
+      text-shadow: 0 0 10px #0f0;
+      font-size: 2em;
+      margin-bottom: 12px;
+      color: #0f0;
+      letter-spacing: 2px;
+    }
+    .section p {
+      color: #fff;
+      font-size: 1.13em;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .pay-buttons {
+      margin: 18px 0 0 0;
+    }
+    .pay-buttons a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #0f0;
+      color: #000;
+      text-align: center;
+      text-decoration: none;
+      margin: 8px 8px 0 0;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1em;
+      box-shadow: 0 0 6px #0f0;
+      transition: background 0.2s;
+    }
+    .pay-buttons a:hover {
+      background: #fff;
+      color: #090;
+    }
+    .neon-blink {
+      color: #0f0;
+      animation: blink 2s infinite;
+      text-shadow: 0 0 5px #0f0;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    footer {
+      text-align: center;
+      padding: 18px 0 12px 0;
+      background: #111;
+      color: #0f0;
+      font-size: 1em;
+      letter-spacing: 1px;
+      margin-top: 32px;
+      box-shadow: 0 -2px 12px #090;
+    }
+    footer a { color: #0f0; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2em; }
+      nav a { font-size: 1em; margin: 0 10px; }
+      .section { padding: 16px 6px; }
+      .section h2 { font-size: 1.3em; }
+      .order-button, .flavors-button {
+        display: block;
+        width: 85%;
+        margin: 0 auto 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="flavors.html">Flavors</a>
+    <a href="order.html">Order</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+  <main>
+    <div class="hero">
+      <h1 class="neon-blink">KanT Iced Tea</h1>
+      <p>Bold, fresh, and local. Delivery only in Coatesville.<br>Order now and enjoy neon vibes in every sip!</p>
+      <a href="order.html" class="order-button">Place Your Order</a>
+      <a href="kanttea-flavors.html" class="flavors-button">ENTER FLAVORS</a>
+    </div>
+    <div class="section">
+      <h2>How to Order</h2>
+      <p>Choose your favorite flavor, fill out the order form, and pay securely.<br><b>Delivery area:</b> Coatesville only.</p>
+      <div class="pay-buttons">
+        <a href="https://cash.app/$findtheself" target="_blank">Pay with Cash App</a>
+        <a href="https://paypal.me/Iamdoyen" target="_blank">Pay with PayPal</a>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Contact & Social</h2>
+      <p>Questions or feedback? <br>
+        <b>Email:</b> <a href="mailto:doyenthefirst@gmail.com">doyenthefirst@gmail.com</a> <br>
+        <b>Phone:</b> <a href="tel:4847537531">484-753-7531</a> <br>
+        <b>Instagram:</b> <a href="https://instagram.com/kanticedtea" target="_blank">@kanticedtea</a>
+      </p>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 KanT Iced Tea | <a href="terms.html">Terms</a>
+  </footer>
+</body>
+</html>
