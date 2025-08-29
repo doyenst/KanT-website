@@ -14,13 +14,53 @@
       font-family: 'Rubik Spray Paint', cursive;
       overflow-x: hidden;
     }
+
+    /* ATTENTION BANNER */
+    .alert-banner {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: #000;
+      padding: 14px 18px 12px 18px;
+      text-align: center;
+      font-size: 1.05em;
+      line-height: 1.4;
+      letter-spacing: 1px;
+      border-bottom: 3px solid #0f0;
+      box-shadow: 0 0 22px #0f0, 0 0 10px #090 inset;
+      animation: bannerPulse 2.2s ease-in-out infinite;
+    }
+    .alert-banner a {
+      color: #0f0;
+      text-decoration: underline;
+    }
+    .alert-banner a:hover {
+      color: #fff;
+    }
+    .alert-icon {
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 1.2em;
+      animation: blinkIcon 0.9s linear infinite;
+      filter: drop-shadow(0 0 6px #0f0);
+    }
+    @keyframes blinkIcon {
+      0%, 60% { opacity: 1; transform: scale(1); }
+      30% { opacity: 0.25; transform: scale(1.15); }
+      100% { opacity: 1; }
+    }
+    @keyframes bannerPulse {
+      0%, 100% { box-shadow: 0 0 22px #0f0, 0 0 10px #090 inset; }
+      50% { box-shadow: 0 0 8px #0f0, 0 0 4px #060 inset; }
+    }
+
     nav {
       background: #111;
       padding: 16px 0;
       text-align: center;
       position: sticky;
-      top: 0;
-      z-index: 10;
+      top: 66px; /* sits just under the alert banner */
+      z-index: 20;
       box-shadow: 0 3px 12px #090;
     }
     nav a {
@@ -134,10 +174,19 @@
       nav a { font-size: 1em; }
       .section { padding: 16px 6px; }
       .section h2 { font-size: 1.3em; }
+      .alert-banner { font-size: 0.95em; padding: 12px 10px 10px; }
     }
   </style>
 </head>
 <body>
+  <!-- HIGH-ATTENTION WARNING BANNER -->
+  <div class="alert-banner" role="alert" aria-live="assertive">
+    <span class="alert-icon">⚠️</span>
+    If you ALREADY PAID but have NOT sent a delivery address, DM
+    <a href="https://instagram.com/kanticedtea" target="_blank">@kanticedtea</a>
+    on Instagram WITH your delivery info NOW. No address = no drink & NO REFUNDS.
+  </div>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="flavors.html">Flavors</a>
