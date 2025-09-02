@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Place Your Order</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding-top: 60px;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px lime;
+    }
+    input, select, button {
+      font-size: 1.2em;
+      padding: 10px;
+      margin: 10px;
+      border: 2px solid #00ff00;
+      background-color: black;
+      color: #00ff00;
+      border-radius: 5px;
+      width: 80%;
+      max-width: 300px;
+    }
+    button:hover {
+      background-color: #00ff00;
+      color: black;
+      cursor: pointer;
+    }
+    #nutrition-info {
+      margin-top: 30px;
+      font-size: 1.25em;
+      color: #fff;
+      text-shadow: 0 0 10px #00ff00;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #111;
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 0 12px #0f0;
+      display: none;
+    }
+    #nutrition-info strong {
+      color: #0f0;
+    }
+    .payment-info {
+      margin-top: 18px;
+      color: #00ff00;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .payment-info a {
+      color: #00ff00;
+      text-decoration: underline;
+    }
+    .payment-info a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Place Your Order</h1>
+  <form>
+    <input type="text" placeholder="Your Name" required><br>
+    <select id="flavor-select">
+      <option value="" disabled selected>Select a flavor</option>
+      <option value="green">Green Tea</option>
+      <option value="black">Black Tea</option>
+      <option value="lemon-honey-black">Lemon Honey Black Tea – Sun Drip</option>
+      <option value="peach-green">Peach Green Tea – Peach Fade</option>
+      <option value="hibiscus-berry">Hibiscus Berry – Crimson Rush</option>
+      <option value="mango-citrus">Mango Citrus – Mango Voltage</option>
+      <option value="sweet-black">Sweet Black Tea (Extra Sugar) – Street Sweet</option>
+    </select><br>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="nutrition-info"></div>
+
+  <script>
+    const nutritionData = {
+      "green": {
+        name: "Green Tea",
+        nutrition: "Classic green tea. (Nutrition varies by blend.)"
+      },
+      "black": {
+        name: "Black Tea",
+        nutrition: "Classic black tea. (Nutrition varies by blend.)"
+      },
+      "lemon-honey-black": {
+        name: "Lemon Honey Black Tea – Sun Drip",
+        nutrition: "<strong>Nutrition (per 16 oz can):</strong> ~70 calories, 17g sugar"
+      },
+      "peach-green": {
+        name: "Peach Green Tea – Peach Fade",
+        nutrition: "<strong>Nutrition (per 16 oz can):</strong> ~50 calories, 12g sugar"
+      },
+      "hibiscus-berry": {
+        name: "Hibiscus Berry – Crimson Rush",
+        nutrition: "<strong>Nutrition (per 16 oz can):</strong> ~60 calories, 15g sugar<br><em>High in Vitamin C & antioxidants</em>"
+      },
+      "mango-citrus": {
+        name: "Mango Citrus – Mango Voltage",
+        nutrition: "<strong>Nutrition (per 16 oz can):</strong> ~80 calories, 20g sugar<br><em>Vitamin C + Potassium</em>"
+      },
+      "sweet-black": {
+        name: "Sweet Black Tea (Extra Sugar) – Street Sweet",
+        nutrition: "<strong>Nutrition (per 16 oz can):</strong> (Extra sugar – contact for details!)"
+      }
+    };
+
+    const flavorSelect = document.getElementById('flavor-select');
+    const nutritionInfo = document.getElementById('nutrition-info');
+
+    flavorSelect.addEventListener('change', function() {
+      const selected = flavorSelect.value;
+      if (nutritionData[selected]) {
+        nutritionInfo.innerHTML = 
+          `<div>
+            <strong>${nutritionData[selected].name}</strong><br>
+            ${nutritionData[selected].nutrition}
+            <div class="payment-info">
+              PAY WITH <a href="https://cash.app/$findtheself" target="_blank">CASH APP</a> OR 
+              <a href="https://paypal.me/Iamdoyen" target="_blank">PAY PAL</a>, SEND ME A MESSAGE ON 
+              <a href="https://instagram.com/kanticedtea" target="_blank">INSTAGRAM</a> FOR DELIVERY INFO
+            </div>
+          </div>`;
+        nutritionInfo.style.display = 'block';
+      } else {
+        nutritionInfo.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
