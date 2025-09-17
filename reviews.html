@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Reviews - KanT Iced Tea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #39FF14;
+      font-family: 'Rubik Spray Paint', cursive, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    nav {
+      background: #111;
+      padding: 16px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 12px #090;
+    }
+    nav a {
+      color: #39FF14;
+      margin: 0 18px;
+      text-decoration: none;
+      font-size: 1.2em;
+      text-shadow: 0 0 8px #39FF14;
+      transition: color 0.2s;
+      font-family: 'Rubik Spray Paint', cursive;
+    }
+    nav a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .logo {
+      display: block;
+      margin: 20px auto;
+      max-width: 200px;
+      height: auto;
+      filter: drop-shadow(0 0 10px #39FF14);
+    }
+    .hero {
+      text-align: center;
+      padding: 20px 18px 32px 18px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      text-shadow: 0 0 18px #39FF14, 0 0 36px #39FF14;
+      margin-bottom: 16px;
+      letter-spacing: 3px;
+      animation: blink-neon 2s infinite;
+      color: #39FF14;
+    }
+    @keyframes blink-neon {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .section {
+      background: #111;
+      border-radius: 18px;
+      padding: 28px 18px;
+      margin: 24px auto;
+      max-width: 700px;
+      box-shadow: 0 0 18px #39FF14;
+    }
+    .section h2 {
+      text-shadow: 0 0 10px #39FF14;
+      font-size: 2em;
+      margin-bottom: 12px;
+      color: #39FF14;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    .section p, .section label {
+      color: #fff;
+      font-size: 1.13em;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    input, select, textarea {
+      background: #222;
+      color: #39FF14;
+      border: 2px solid #39FF14;
+      border-radius: 7px;
+      padding: 8px;
+      font-size: 1em;
+      margin-bottom: 15px;
+      width: 100%;
+      max-width: 420px;
+      font-family: Arial, sans-serif;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    button[type="submit"] {
+      background: #39FF14;
+      color: #000;
+      border: none;
+      font-size: 1.1em;
+      border-radius: 8px;
+      padding: 12px 32px;
+      font-weight: bold;
+      box-shadow: 0 0 12px #39FF14;
+      cursor: pointer;
+      margin-top: 12px;
+      text-shadow: 0 0 5px #39FF14;
+      transition: all 0.2s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button[type="submit"]:hover {
+      background: #fff;
+      color: #39FF14;
+      box-shadow: 0 0 20px #39FF14;
+    }
+    .reviews-display {
+      margin-top: 40px;
+    }
+    .review-bubble {
+      background: rgba(57, 255, 20, 0.1);
+      border: 2px solid #39FF14;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+      transition: all 0.3s;
+    }
+    .review-bubble:hover {
+      box-shadow: 0 0 25px rgba(57, 255, 20, 0.5);
+      transform: translateY(-2px);
+    }
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .reviewer-name {
+      color: #39FF14;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-shadow: 0 0 5px #39FF14;
+    }
+    .review-date {
+      color: #ccc;
+      font-size: 0.9em;
+    }
+    .review-text {
+      color: #fff;
+      line-height: 1.5;
+      font-family: Arial, sans-serif;
+    }
+    .stars {
+      color: #39FF14;
+      font-size: 1.2em;
+      text-shadow: 0 0 5px #39FF14;
+    }
+    @media (max-width: 700px) {
+      nav a { font-size: 1em; margin: 0 10px; }
+      .section { padding: 16px 4px; }
+      .section h2 { font-size: 1.5em; }
+      .hero h1 { font-size: 2.2em; }
+      .logo { max-width: 150px; }
+      .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      input, textarea {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="flavors.html">Flavors</a>
+    <a href="order.html">Order</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+  
+  <div class="hero">
+    <img src="logo.png" alt="KanT Iced Tea Graffiti Logo" class="logo">
+    <h1>Customer Reviews</h1>
+  </div>
+  
+  <div class="section">
+    <h2>Share Your Experience</h2>
+    <p>We'd love to hear what you think about our neon-vibes iced tea! Share your review below:</p>
+    
+    <form action="https://formsubmit.co/kanticedtea@gmail.com" method="POST">
+      <input type="hidden" name="_next" value="thankyou.html">
+      <input type="hidden" name="_subject" value="New Customer Review for KanT Iced Tea">
+      <input type="text" name="_honey" style="display:none">
+      
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="Customer Name" placeholder="Enter your name" required>
+      
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="Customer Email" placeholder="Enter your email" required>
+      
+      <label for="review">Your Review:</label>
+      <textarea id="review" name="Customer Review" placeholder="Tell us about your KanT Iced Tea experience..." required></textarea>
+      
+      <button type="submit">Submit Review</button>
+    </form>
+  </div>
+  
+  <div class="section">
+    <div class="reviews-display">
+      <h2>What Our Customers Say</h2>
+      
+      <div class="review-bubble">
+        <div class="review-header">
+          <span class="reviewer-name">Marcus T.</span>
+          <div>
+            <span class="stars">★★★★★</span>
+            <span class="review-date">Dec 2024</span>
+          </div>
+        </div>
+        <div class="review-text">
+          "The Mango Voltage flavor is absolutely incredible! The neon aesthetic and the taste both hit different. Doyen really knows what he's doing with these teas. Delivery was quick too!"
+        </div>
+      </div>
+      
+      <div class="review-bubble">
+        <div class="review-header">
+          <span class="reviewer-name">Sarah K.</span>
+          <div>
+            <span class="stars">★★★★★</span>
+            <span class="review-date">Nov 2024</span>
+          </div>
+        </div>
+        <div class="review-text">
+          "Love the Peach Fade! Perfect balance of sweet and refreshing. The glow-in-the-dark branding is so cool, and I love reusing the glass jars. Supporting local in Coatesville feels great!"
+        </div>
+      </div>
+      
+      <div class="review-bubble">
+        <div class="review-header">
+          <span class="reviewer-name">Alex R.</span>
+          <div>
+            <span class="stars">★★★★★</span>
+            <span class="review-date">Nov 2024</span>
+          </div>
+        </div>
+        <div class="review-text">
+          "Crimson Rush is my go-to after long study sessions. The hibiscus berry combo is perfect and gives me the energy I need. Plus the whole graffiti vibe makes it feel like art you can drink!"
+        </div>
+      </div>
+      
+      <div class="review-bubble">
+        <div class="review-header">
+          <span class="reviewer-name">Jordan M.</span>
+          <div>
+            <span class="stars">★★★★☆</span>
+            <span class="review-date">Oct 2024</span>
+          </div>
+        </div>
+        <div class="review-text">
+          "Sun Drip is amazing - the lemon honey black tea has such a unique flavor profile. Really appreciate that there's no HFCS. Only wish delivery was available outside Coatesville!"
+        </div>
+      </div>
+      
+      <div class="review-bubble">
+        <div class="review-header">
+          <span class="reviewer-name">Casey L.</span>
+          <div>
+            <span class="stars">★★★★★</span>
+            <span class="review-date">Oct 2024</span>
+          </div>
+        </div>
+        <div class="review-text">
+          "The Street Sweet hits perfectly when I need that extra sugar kick! Great customer service too - Doyen responded super fast on Instagram. Definitely ordering again!"
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
