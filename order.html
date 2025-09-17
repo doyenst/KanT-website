@@ -12,13 +12,14 @@
 </head>
 <body>
   <h1>Place Your Order</h1>
-  <form id="orderForm">
+  <form action="https://formsubmit.co/kanticedtea@gmail.com" method="POST" id="orderForm">
+    <input type="text" name="_honey" style="display:none">
     <label for="name">Your Name:</label>
-    <input type="text" id="name" placeholder="Your Name" required><br>
+    <input type="text" id="name" name="Customer Name" placeholder="Your Name" required><br>
     <label for="address">Delivery Address:</label>
-    <input type="text" id="address" placeholder="Delivery Address" required><br>
+    <input type="text" id="address" name="Delivery Address" placeholder="Delivery Address" required><br>
     <label for="flavor">Choose Flavor:</label>
-    <select id="flavor" required>
+    <select id="flavor" name="Flavor" required>
       <option value="">Select a flavor</option>
       <option value="green">Green Tea</option>
       <option value="black">Black Tea</option>
@@ -29,15 +30,15 @@
       <option value="sweet-black">Sweet Black Tea (Extra Sugar) – Street Sweet</option>
     </select><br>
     <label>
-      <input type="checkbox" id="talkedOwner"> Already talked to the owner
+      <input type="checkbox" id="talkedOwner" name="Talked to Owner"> Already talked to the owner
     </label><br>
     <button type="submit">Order</button>
   </form>
   <script>
     document.getElementById("orderForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Thank you for your order! We received your request and will be in touch for delivery.");
-      // Here you would add your order handling logic (send email, save to db, etc)
+      setTimeout(function() {
+        alert("Thank you for your order! We received your request and will be in touch for delivery.");
+      }, 200);
     });
   </script>
 </body>
