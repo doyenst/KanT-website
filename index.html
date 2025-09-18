@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KanT Iced Tea</title>
+  <title>kanty</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       margin: 0;
       background-color: #000;
-      color: #0f0;
+      color: #39ff14;
       font-family: 'Rubik Spray Paint', cursive;
       overflow-x: hidden;
     }
@@ -26,23 +26,23 @@
       font-size: 1.05em;
       line-height: 1.4;
       letter-spacing: 1px;
-      border-bottom: 3px solid #0f0;
-      box-shadow: 0 0 22px #0f0, 0 0 10px #090 inset;
+      border-bottom: 3px solid #39ff14;
+      box-shadow: 0 0 22px #39ff14, 0 0 10px #ff1fd6 inset;
       animation: bannerPulse 2.2s ease-in-out infinite;
     }
     .alert-banner a {
-      color: #0f0;
+      color: #39ff14;
       text-decoration: underline;
     }
     .alert-banner a:hover {
-      color: #fff;
+      color: #ff1fd6;
     }
     .alert-icon {
       display: inline-block;
       margin-right: 8px;
       font-size: 1.2em;
       animation: blinkIcon 0.9s linear infinite;
-      filter: drop-shadow(0 0 6px #0f0);
+      filter: drop-shadow(0 0 6px #39ff14);
     }
     @keyframes blinkIcon {
       0%, 60% { opacity: 1; transform: scale(1); }
@@ -50,8 +50,8 @@
       100% { opacity: 1; }
     }
     @keyframes bannerPulse {
-      0%, 100% { box-shadow: 0 0 22px #0f0, 0 0 10px #090 inset; }
-      50% { box-shadow: 0 0 8px #0f0, 0 0 4px #060 inset; }
+      0%, 100% { box-shadow: 0 0 22px #39ff14, 0 0 10px #ff1fd6 inset; }
+      50% { box-shadow: 0 0 8px #39ff14, 0 0 4px #ff1fd6 inset; }
     }
 
     nav {
@@ -61,24 +61,134 @@
       position: sticky;
       top: 66px; /* sits just under the alert banner */
       z-index: 20;
-      box-shadow: 0 3px 12px #090;
+      box-shadow: 0 3px 12px #ff1fd6;
     }
     nav a {
-      color: #0f0;
+      color: #39ff14;
       margin: 0 18px;
       text-decoration: none;
       font-size: 1.2em;
-      text-shadow: 0 0 5px #0f0;
+      text-shadow: 0 0 5px #39ff14;
       transition: color 0.2s;
     }
     nav a:hover {
-      color: #fff;
+      color: #ff1fd6;
       text-decoration: underline;
+      text-shadow: 0 0 8px #ff1fd6;
     }
     .hero {
       text-align: center;
       padding: 60px 18px 32px 18px;
+      position: relative;
+      min-height: 400px;
     }
+    
+    /* Graffiti-style kanty logo */
+    .graffiti-logo {
+      font-size: 4.5em;
+      font-weight: 900;
+      color: #39ff14;
+      text-shadow: 
+        -4px -4px 0 #ff1fd6,
+        4px -4px 0 #ff1fd6,
+        -4px 4px 0 #ff1fd6,
+        4px 4px 0 #ff1fd6,
+        0 0 20px #39ff14,
+        0 0 40px #39ff14,
+        0 0 60px #39ff14;
+      margin-bottom: 30px;
+      letter-spacing: 8px;
+      text-transform: lowercase;
+      position: relative;
+      transform: rotate(-2deg);
+      animation: graffitiBlink 3s infinite;
+    }
+    
+    @keyframes graffitiBlink {
+      0%, 85% { 
+        opacity: 1; 
+        text-shadow: 
+          -4px -4px 0 #ff1fd6,
+          4px -4px 0 #ff1fd6,
+          -4px 4px 0 #ff1fd6,
+          4px 4px 0 #ff1fd6,
+          0 0 20px #39ff14,
+          0 0 40px #39ff14,
+          0 0 60px #39ff14;
+      }
+      90%, 95% { 
+        opacity: 0.7; 
+        text-shadow: 
+          -4px -4px 0 #ff1fd6,
+          4px -4px 0 #ff1fd6,
+          -4px 4px 0 #ff1fd6,
+          4px 4px 0 #ff1fd6,
+          0 0 10px #39ff14;
+      }
+    }
+    
+    /* Graffiti doodles */
+    .graffiti-doodles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .doodle {
+      position: absolute;
+      font-size: 2em;
+      animation: doodleFloat 4s ease-in-out infinite;
+    }
+    
+    .winged-heart {
+      top: 15%;
+      left: 15%;
+      color: #ff1fd6;
+      filter: drop-shadow(0 0 10px #ff1fd6);
+      animation-delay: 0s;
+    }
+    
+    .alien-face {
+      top: 25%;
+      right: 20%;
+      color: #39ff14;
+      filter: drop-shadow(0 0 10px #39ff14);
+      animation-delay: 1s;
+    }
+    
+    .pink-swirl {
+      bottom: 35%;
+      left: 10%;
+      color: #ff1fd6;
+      filter: drop-shadow(0 0 10px #ff1fd6);
+      animation-delay: 2s;
+    }
+    
+    .dripping-skull {
+      bottom: 20%;
+      right: 15%;
+      color: #ff1fd6;
+      filter: drop-shadow(0 0 10px #ff1fd6);
+      animation-delay: 0.5s;
+    }
+    
+    .handprint {
+      top: 40%;
+      left: 5%;
+      color: #39ff14;
+      filter: drop-shadow(0 0 10px #39ff14);
+      animation-delay: 1.5s;
+    }
+    
+    @keyframes doodleFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+    
     .hero h1 {
       font-size: 3em;
       text-shadow: 0 0 18px #0f0;
@@ -89,24 +199,36 @@
       font-size: 1.3em;
       margin: 20px 0 36px 0;
       color: #fff;
-      text-shadow: 0 0 6px #0f0;
+      text-shadow: 0 0 6px #39ff14;
+      position: relative;
+      z-index: 2;
     }
     .order-button {
       padding: 15px 32px;
       background: #000;
-      color: #0f0;
-      border: 2px solid #0f0;
+      color: #39ff14;
+      border: 3px solid #39ff14;
       cursor: pointer;
       font-size: 1.1em;
       border-radius: 10px;
-      text-shadow: 0 0 5px #0f0;
-      transition: all 0.2s;
+      text-shadow: 0 0 8px #39ff14;
+      transition: all 0.3s;
       margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'Rubik Spray Paint', cursive;
+      font-weight: bold;
+      box-shadow: 0 0 15px #39ff14;
     }
     .order-button:hover {
-      background: #0f0;
+      background: #39ff14;
       color: #000;
-      box-shadow: 0 0 12px #0f0;
+      box-shadow: 0 0 25px #39ff14, 0 0 15px #ff1fd6;
+      border-color: #ff1fd6;
+      text-shadow: 0 0 5px #000;
+      transform: scale(1.05);
     }
     .section {
       background: #111;
@@ -114,13 +236,14 @@
       padding: 28px 18px;
       margin: 24px auto;
       max-width: 700px;
-      box-shadow: 0 0 18px #0f0;
+      box-shadow: 0 0 18px #39ff14, 0 0 8px #ff1fd6 inset;
+      border: 2px solid #39ff14;
     }
     .section h2 {
-      text-shadow: 0 0 10px #0f0;
+      text-shadow: 0 0 10px #39ff14, 0 0 20px #ff1fd6;
       font-size: 2em;
       margin-bottom: 12px;
-      color: #0f0;
+      color: #39ff14;
       letter-spacing: 2px;
     }
     .section p {
@@ -129,13 +252,22 @@
       margin-bottom: 10px;
       line-height: 1.6;
     }
+    .section a {
+      color: #39ff14;
+      text-shadow: 0 0 5px #39ff14;
+      transition: color 0.2s;
+    }
+    .section a:hover {
+      color: #ff1fd6;
+      text-shadow: 0 0 8px #ff1fd6;
+    }
     .pay-buttons {
       margin: 18px 0 0 0;
     }
     .pay-buttons a {
       display: inline-block;
       padding: 12px 24px;
-      background: #0f0;
+      background: #39ff14;
       color: #000;
       text-align: center;
       text-decoration: none;
@@ -143,34 +275,41 @@
       border-radius: 8px;
       font-weight: bold;
       font-size: 1em;
-      box-shadow: 0 0 6px #0f0;
-      transition: background 0.2s;
+      box-shadow: 0 0 10px #39ff14;
+      transition: all 0.3s;
+      border: 2px solid #ff1fd6;
+      font-family: 'Rubik Spray Paint', cursive;
     }
     .pay-buttons a:hover {
-      background: #fff;
-      color: #090;
-    }
-    .neon-blink {
-      color: #0f0;
-      animation: blink 2s infinite;
-      text-shadow: 0 0 5px #0f0;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      background: #ff1fd6;
+      color: #000;
+      box-shadow: 0 0 20px #ff1fd6;
+      border-color: #39ff14;
+      transform: scale(1.05);
     }
     footer {
       text-align: center;
       padding: 18px 0 12px 0;
       background: #111;
-      color: #0f0;
+      color: #39ff14;
       font-size: 1em;
       letter-spacing: 1px;
       margin-top: 32px;
-      box-shadow: 0 -2px 12px #090;
+      box-shadow: 0 -2px 12px #ff1fd6;
+      border-top: 2px solid #39ff14;
+    }
+    footer a {
+      color: #39ff14;
+      text-shadow: 0 0 5px #39ff14;
+    }
+    footer a:hover {
+      color: #ff1fd6;
+      text-shadow: 0 0 8px #ff1fd6;
     }
     @media (max-width: 700px) {
-      .hero h1 { font-size: 2em; }
+      .graffiti-logo { font-size: 3em; letter-spacing: 4px; }
+      .hero { min-height: 300px; }
+      .doodle { font-size: 1.5em; }
       nav a { font-size: 1em; }
       .section { padding: 16px 6px; }
       .section h2 { font-size: 1.3em; }
@@ -198,7 +337,14 @@
   </nav>
   <main>
     <div class="hero">
-      <h1 class="neon-blink">KanT Iced Tea</h1>
+      <div class="graffiti-doodles">
+        <div class="doodle winged-heart">💔</div>
+        <div class="doodle alien-face">👽</div>
+        <div class="doodle pink-swirl">🌪️</div>
+        <div class="doodle dripping-skull">💀</div>
+        <div class="doodle handprint">✋</div>
+      </div>
+      <h1 class="graffiti-logo">kanty</h1>
       <p>Bold, fresh, and local. Delivery only in Coatesville.<br>Order now and enjoy neon vibes in every sip!</p>
       <a href="order.html" class="order-button">Place Your Order</a>
     </div>
@@ -220,7 +366,7 @@
     </div>
   </main>
   <footer>
-    &copy; 2025 KanT Iced Tea | <a href="terms.html" style="color:#0f0;">Terms</a>
+    &copy; 2025 kanty | <a href="terms.html">Terms</a>
   </footer>
 </body>
 </html>
