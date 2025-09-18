@@ -7,6 +7,8 @@
   <style>
     body {
       background: #000;
+      background-image: radial-gradient(circle at 35% 65%, #1a001a 0%, transparent 30%), 
+                        radial-gradient(circle at 65% 35%, #001a1a 0%, transparent 30%);
       color: #39FF14;
       font-family: 'Permanent Marker', cursive, sans-serif;
       margin: 0;
@@ -19,25 +21,33 @@
       margin: 0 auto;
       padding: 2rem;
       text-align: center;
+      border: 2px solid #9d00ff;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(0,0,0,0.8) 0%, rgba(26,0,26,0.6) 100%);
+      box-shadow: 0 0 25px #ff1fd6, 0 0 40px #00ffff, 0 0 10px #9d00ff inset;
     }
     h1 {
       font-size: 2.3rem;
-      text-shadow: 0 0 15px #39FF14, 0 0 40px #39FF14;
+      text-shadow: 0 0 15px #39FF14, 0 0 30px #ff1fd6, 0 0 45px #00ffff;
       margin-bottom: 2rem;
       letter-spacing: 2px;
     }
     .flavor {
       margin-bottom: 2.5rem;
-      border-bottom: 2px dashed #39FF14;
+      border-bottom: 2px dashed #00ffff;
       padding-bottom: 1rem;
+      background: linear-gradient(135deg, rgba(57,255,20,0.1) 0%, rgba(255,31,214,0.1) 50%, rgba(157,0,255,0.1) 100%);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 0 15px #ff1fd6, 0 0 8px #39FF14 inset;
     }
     .flavor:last-child {
-      border-bottom: none;
+      border-bottom: 2px dashed #00ffff;
     }
     .flavor-title {
       font-size: 1.6rem;
       margin-bottom: 0.4rem;
-      text-shadow: 0 0 8px #39FF14;
+      text-shadow: 0 0 8px #39FF14, 0 0 12px #ff1fd6;
     }
     .flavor-desc {
       font-size: 1.1rem;
@@ -47,20 +57,22 @@
     .nutrition, .extra {
       font-size: 1rem;
       margin-bottom: 0.2rem;
-      color: #fff;
-      text-shadow: 0 0 5px #39FF14;
+      color: #ffff00;
+      text-shadow: 0 0 5px #ffff00, 0 0 8px #00ffff;
+      font-weight: bold;
     }
     .benefits {
       margin-top: 3rem;
       padding: 2rem 1rem 1.5rem 1rem;
       border-radius: 12px;
-      background: rgba(39,255,20,0.12);
-      box-shadow: 0 0 40px #39FF14;
+      background: linear-gradient(135deg, rgba(39,255,20,0.12) 0%, rgba(0,255,255,0.08) 50%, rgba(157,0,255,0.12) 100%);
+      box-shadow: 0 0 40px #39FF14, 0 0 50px #ff1fd6, 0 0 25px #00ffff;
+      border: 2px solid #9d00ff;
     }
     .benefits-title {
       font-size: 2rem;
       margin-bottom: 1rem;
-      text-shadow: 0 0 15px #39FF14;
+      text-shadow: 0 0 15px #39FF14, 0 0 25px #ff1fd6;
       letter-spacing: 2px;
     }
     .benefit-list {
@@ -71,7 +83,8 @@
     }
     .benefit-list li {
       margin-bottom: 0.9rem;
-      text-shadow: 0 0 10px #39FF14;
+      text-shadow: 0 0 10px #39FF14, 0 0 15px #00ffff;
+      color: #fff;
     }
     @media (max-width: 600px) {
       .container { padding: 1rem; }

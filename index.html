@@ -10,7 +10,9 @@
     body {
       margin: 0;
       background-color: #000;
-      color: #0f0;
+      background-image: radial-gradient(circle at 20% 80%, #1a001a 0%, transparent 30%), 
+                        radial-gradient(circle at 80% 20%, #001a1a 0%, transparent 30%);
+      color: #39ff14;
       font-family: 'Rubik Spray Paint', cursive;
       overflow-x: hidden;
     }
@@ -20,29 +22,31 @@
       position: sticky;
       top: 0;
       z-index: 30;
-      background: #000;
+      background: linear-gradient(90deg, #000 0%, #1a001a 50%, #000 100%);
       padding: 14px 18px 12px 18px;
       text-align: center;
       font-size: 1.05em;
       line-height: 1.4;
       letter-spacing: 1px;
-      border-bottom: 3px solid #0f0;
-      box-shadow: 0 0 22px #0f0, 0 0 10px #090 inset;
+      border-bottom: 3px solid #ffff00;
+      box-shadow: 0 0 22px #ff1fd6, 0 0 35px #9d00ff, 0 0 10px #00ffff inset;
       animation: bannerPulse 2.2s ease-in-out infinite;
     }
     .alert-banner a {
-      color: #0f0;
+      color: #39ff14;
       text-decoration: underline;
+      text-shadow: 0 0 5px #39ff14;
     }
     .alert-banner a:hover {
-      color: #fff;
+      color: #ffff00;
+      text-shadow: 0 0 8px #ffff00;
     }
     .alert-icon {
       display: inline-block;
       margin-right: 8px;
       font-size: 1.2em;
       animation: blinkIcon 0.9s linear infinite;
-      filter: drop-shadow(0 0 6px #0f0);
+      filter: drop-shadow(0 0 6px #ff1fd6) drop-shadow(0 0 12px #00ffff);
     }
     @keyframes blinkIcon {
       0%, 60% { opacity: 1; transform: scale(1); }
@@ -50,29 +54,31 @@
       100% { opacity: 1; }
     }
     @keyframes bannerPulse {
-      0%, 100% { box-shadow: 0 0 22px #0f0, 0 0 10px #090 inset; }
-      50% { box-shadow: 0 0 8px #0f0, 0 0 4px #060 inset; }
+      0%, 100% { box-shadow: 0 0 22px #ff1fd6, 0 0 35px #9d00ff, 0 0 10px #00ffff inset; }
+      50% { box-shadow: 0 0 35px #39ff14, 0 0 50px #ffff00, 0 0 15px #ff1fd6 inset; }
     }
 
     nav {
-      background: #111;
+      background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
       padding: 16px 0;
       text-align: center;
       position: sticky;
       top: 66px; /* sits just under the alert banner */
       z-index: 20;
-      box-shadow: 0 3px 12px #090;
+      box-shadow: 0 3px 12px #9d00ff, 0 5px 20px #39ff14;
+      border-bottom: 2px solid #00ffff;
     }
     nav a {
-      color: #0f0;
+      color: #39ff14;
       margin: 0 18px;
       text-decoration: none;
       font-size: 1.2em;
-      text-shadow: 0 0 5px #0f0;
+      text-shadow: 0 0 5px #39ff14, 0 0 10px #00ffff;
       transition: color 0.2s;
     }
     nav a:hover {
-      color: #fff;
+      color: #ff1fd6;
+      text-shadow: 0 0 8px #ff1fd6, 0 0 12px #ffff00;
       text-decoration: underline;
     }
     .hero {
@@ -81,7 +87,7 @@
     }
     .hero h1 {
       font-size: 3em;
-      text-shadow: 0 0 18px #0f0;
+      text-shadow: 0 0 18px #39ff14, 0 0 30px #ff1fd6, 0 0 45px #00ffff;
       margin-bottom: 16px;
       letter-spacing: 3px;
     }
@@ -89,35 +95,45 @@
       font-size: 1.3em;
       margin: 20px 0 36px 0;
       color: #fff;
-      text-shadow: 0 0 6px #0f0;
+      text-shadow: 0 0 6px #39ff14, 0 0 12px #9d00ff;
     }
     .order-button {
       padding: 15px 32px;
-      background: #000;
-      color: #0f0;
-      border: 2px solid #0f0;
+      background: linear-gradient(135deg, #39ff14 0%, #00ffff 50%, #9d00ff 100%);
+      color: #000;
+      border: 2px solid #ff1fd6;
       cursor: pointer;
       font-size: 1.1em;
       border-radius: 10px;
-      text-shadow: 0 0 5px #0f0;
+      text-shadow: 0 0 3px #fff;
+      font-weight: bold;
       transition: all 0.2s;
       margin-bottom: 18px;
+      box-shadow: 0 0 15px #ff1fd6, 0 0 8px #39ff14 inset;
     }
     .order-button:hover {
-      background: #0f0;
+      background: linear-gradient(135deg, #ffff00 0%, #ff1fd6 50%, #9d00ff 100%);
       color: #000;
-      box-shadow: 0 0 12px #0f0;
+      border-color: #39ff14;
+      box-shadow: 0 0 25px #39ff14, 0 0 12px #ff1fd6 inset;
+      transform: scale(1.05);
     }
     .section {
-      background: #111;
+      background: linear-gradient(145deg, #111 0%, #1a1a1a 100%);
       border-radius: 18px;
       padding: 28px 18px;
       margin: 24px auto;
       max-width: 700px;
-      box-shadow: 0 0 18px #0f0;
+      box-shadow: 0 0 18px #39ff14, 0 0 35px #ff1fd6, 0 0 8px #00ffff inset;
+      border: 2px solid #9d00ff;
     }
     .section h2 {
-      text-shadow: 0 0 10px #0f0;
+      text-shadow: 0 0 10px #39ff14, 0 0 20px #ff1fd6;
+      font-size: 2em;
+      margin-bottom: 12px;
+      color: #39ff14;
+      letter-spacing: 2px;
+    }
       font-size: 2em;
       margin-bottom: 12px;
       color: #0f0;
@@ -135,7 +151,7 @@
     .pay-buttons a {
       display: inline-block;
       padding: 12px 24px;
-      background: #0f0;
+      background: linear-gradient(135deg, #ff1fd6 0%, #9d00ff 100%);
       color: #000;
       text-align: center;
       text-decoration: none;
@@ -143,17 +159,21 @@
       border-radius: 8px;
       font-weight: bold;
       font-size: 1em;
-      box-shadow: 0 0 6px #0f0;
-      transition: background 0.2s;
+      box-shadow: 0 0 12px #ff1fd6, 0 0 6px #39ff14 inset;
+      border: 2px solid #00ffff;
+      transition: all 0.2s;
     }
     .pay-buttons a:hover {
-      background: #fff;
-      color: #090;
+      background: linear-gradient(135deg, #ffff00 0%, #39ff14 100%);
+      color: #000;
+      box-shadow: 0 0 20px #39ff14, 0 0 10px #ff1fd6 inset;
+      border-color: #9d00ff;
+      transform: scale(1.05);
     }
     .neon-blink {
-      color: #0f0;
+      color: #39ff14;
       animation: blink 2s infinite;
-      text-shadow: 0 0 5px #0f0;
+      text-shadow: 0 0 5px #39ff14, 0 0 10px #ff1fd6, 0 0 15px #00ffff;
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
@@ -162,12 +182,23 @@
     footer {
       text-align: center;
       padding: 18px 0 12px 0;
-      background: #111;
-      color: #0f0;
+      background: linear-gradient(180deg, #111 0%, #1a001a 100%);
+      color: #39ff14;
       font-size: 1em;
       letter-spacing: 1px;
       margin-top: 32px;
-      box-shadow: 0 -2px 12px #090;
+      box-shadow: 0 -2px 12px #ff1fd6, 0 -4px 20px #9d00ff;
+      border-top: 2px solid #00ffff;
+    }
+    /* General link styling */
+    a {
+      color: #00ffff;
+      text-shadow: 0 0 5px #00ffff;
+      transition: all 0.2s;
+    }
+    a:hover {
+      color: #ffff00;
+      text-shadow: 0 0 8px #ffff00, 0 0 12px #ff1fd6;
     }
     @media (max-width: 700px) {
       .hero h1 { font-size: 2em; }
@@ -220,7 +251,7 @@
     </div>
   </main>
   <footer>
-    &copy; 2025 KanT Iced Tea | <a href="terms.html" style="color:#0f0;">Terms</a>
+    &copy; 2025 KanT Iced Tea | <a href="terms.html" style="color:#ff1fd6; text-shadow: 0 0 5px #ff1fd6;">Terms</a>
   </footer>
 </body>
 </html>
