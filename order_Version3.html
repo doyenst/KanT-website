@@ -9,42 +9,47 @@
     body {
       margin: 0;
       background-color: #000;
+      background-image: radial-gradient(circle at 25% 75%, #1a001a 0%, transparent 30%), 
+                        radial-gradient(circle at 75% 25%, #001a1a 0%, transparent 30%);
       color: #39FF14;
       font-family: 'Rubik Spray Paint', cursive, Arial, sans-serif;
       overflow-x: hidden;
     }
     nav {
-      background: #111;
+      background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
       padding: 16px 0;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 3px 12px #090;
+      box-shadow: 0 3px 12px #9d00ff, 0 5px 20px #39FF14;
+      border-bottom: 2px solid #00ffff;
     }
     nav a {
       color: #39FF14;
       margin: 0 18px;
       text-decoration: none;
       font-size: 1.2em;
-      text-shadow: 0 0 8px #39FF14;
+      text-shadow: 0 0 8px #39FF14, 0 0 12px #ff1fd6;
       transition: color 0.2s;
       font-family: 'Rubik Spray Paint', cursive;
     }
     nav a:hover {
-      color: #fff;
+      color: #ff1fd6;
+      text-shadow: 0 0 12px #ff1fd6, 0 0 18px #ffff00;
       text-decoration: underline;
     }
     .section {
-      background: #111;
+      background: linear-gradient(145deg, #111 0%, #1a1a1a 100%);
       border-radius: 18px;
       padding: 28px 18px;
       margin: 24px auto;
       max-width: 700px;
-      box-shadow: 0 0 18px #39FF14;
+      box-shadow: 0 0 18px #39FF14, 0 0 35px #ff1fd6, 0 0 8px #00ffff inset;
+      border: 2px solid #9d00ff;
     }
     .section h2 {
-      text-shadow: 0 0 10px #39FF14;
+      text-shadow: 0 0 10px #39FF14, 0 0 20px #ff1fd6;
       font-size: 2em;
       margin-bottom: 12px;
       color: #39FF14;
@@ -94,7 +99,7 @@
     input, select, textarea {
       background: #222;
       color: #39FF14;
-      border: 2px solid #39FF14;
+      border: 2px solid #00ffff;
       border-radius: 7px;
       padding: 8px;
       font-size: 1em;
@@ -102,15 +107,32 @@
       width: 90%;
       max-width: 420px;
       font-family: Arial, sans-serif;
+      box-shadow: 0 0 8px #ff1fd6 inset, 0 0 12px #9d00ff;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #ffff00;
+      box-shadow: 0 0 15px #ffff00, 0 0 10px #39FF14 inset;
+      outline: none;
     }
     button[type="submit"] {
-      background: #39FF14;
+      background: linear-gradient(135deg, #39FF14 0%, #00ffff 50%, #9d00ff 100%);
       color: #000;
-      border: none;
+      border: 2px solid #ff1fd6;
       font-size: 1.1em;
       border-radius: 8px;
       padding: 12px 32px;
       font-weight: bold;
+      cursor: pointer;
+      text-shadow: 0 0 3px #fff;
+      box-shadow: 0 0 16px #ff1fd6, 0 0 25px #00ffff, 0 0 6px #39FF14 inset;
+      transition: all 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: linear-gradient(135deg, #ffff00 0%, #ff1fd6 50%, #9d00ff 100%);
+      border-color: #39FF14;
+      box-shadow: 0 0 30px #39FF14, 0 0 40px #ffff00, 0 0 8px #ff1fd6 inset;
+      transform: scale(1.05);
+    }
       box-shadow: 0 0 12px #39FF14;
       cursor: pointer;
       margin-top: 12px;
