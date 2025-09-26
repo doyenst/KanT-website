@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Kanty — Neon Graffiti Parallax Preview</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kanty — Graffiti Neon Tea</title>
+  <meta name="description" content="Kanty iced tea: all natural, no high fructose corn syrup. Fresh, hand-brewed, with local delivery in Coatesville. Try our bold flavors!" />
+  <link rel="preload" as="image" href="assets/brick-dark.webp">
   <style>
     :root {
       --pink1: #ff3ea5;
@@ -16,16 +18,22 @@
       --bg-dark: #0a0a0a;
       --white: #fff;
       --gray: #dedede;
+      --muted: #a7b1a7;
+      --neon: #00ff88;
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --brand-shadow: 0 0 18px var(--green1), 0 0 24px var(--pink1);
+      --font-main: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
     }
     html, body {
       margin: 0;
       padding: 0;
       background: var(--bg-dark);
       color: var(--gray);
-      font-family: 'Segoe UI', 'Arial', sans-serif;
+      font-family: var(--font-main);
       min-height: 100vh;
       overflow-x: hidden;
     }
+    /* Parallax graffiti */
     .parallax-bg {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
@@ -43,64 +51,102 @@
     }
     .graffiti-layer2 { opacity: 0.32; z-index: 2; }
     .graffiti-layer3 { opacity: 0.17; z-index: 3; }
-    /* Main content over parallax */
-    .main-content {
-      position: relative;
-      z-index: 10;
-      padding: 36px 0 0 0;
-      min-height: 100vh;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* Topbar */
+    .topbar{
+      position: sticky; top:0; z-index:1000;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:12px 18px; background:rgba(10,10,10,.88); backdrop-filter:saturate(1.2) blur(8px);
+      border-bottom:1px solid #141414;
+      box-shadow:0 2px 16px rgba(0,0,0,0.10);
     }
-    .logo {
-      font-size: 2.4em;
-      font-family: 'Segoe UI Black', 'Arial Black', Arial, sans-serif;
-      color: var(--green1);
-      letter-spacing: 2px;
-      text-shadow: 0 0 18px var(--green1), 0 0 6px var(--pink1);
-      margin-bottom: 10px;
-      font-weight: bold;
+    .brand{ font-weight:900; letter-spacing:.5px; font-size:26px; color:var(--green1); text-shadow:var(--brand-shadow); outline:none }
+    .brand:focus{ outline:2px solid var(--neon) }
+    .nav a{ color:var(--gray); text-decoration:none; margin-left:16px; opacity:.85; font-weight:500; border-radius:6px; padding:4px 10px; transition:background .15s }
+    .nav a:hover, .nav a:focus{ opacity:1; background:rgba(255,255,255,0.06) }
+    /* Marquee */
+    .marquee{ overflow:hidden; border-block:1px solid #121212; background:#0e0e0f }
+    .marquee__track{ display:flex; gap:30px; padding:8px 0; animation:scroll 28s linear infinite; will-change: transform; }
+    .marquee span{ white-space:nowrap; color:#cfe9cf; opacity:.75; font-size:14px }
+    @keyframes scroll { from{ transform: translateX(0)} to{ transform: translateX(-50%)} }
+    /* Hero */
+    .hero{
+      display:grid; grid-template-columns:1.1fr 1fr; gap:24px; align-items:center;
+      padding:48px 18px 38px; min-height:70vh;
     }
-    .flavors-row {
-      display: flex;
-      gap: 36px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 38px;
+    .hero__left{ max-width:680px }
+    .headline{ font-size: clamp(32px, 4.5vw, 54px); line-height:1.04; margin:0 0 16px; letter-spacing:1px; color:var(--green1); text-shadow:0 0 10px var(--green1), 0 0 18px var(--green3) }
+    .sub{ color:var(--muted); margin:0 0 26px; max-width:44ch; font-size: 20px; }
+    .btn{
+      display:inline-block; padding:13px 24px; border-radius:999px;
+      background:#121c18; color:var(--gray); text-decoration:none; font-weight:600; border:1px solid #123e2b;
+      font-size:18px; min-width:140px; text-align:center;
     }
-    .can-card {
-      background: rgba(18,18,20,0.8);
-      border-radius: 22px;
-      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.36);
-      padding: 30px 24px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 230px;
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 2;
+    .btn-glow{ box-shadow: 0 0 10px var(--green1), 0 0 20px rgba(0,255,136,.5); animation:pulse 2.2s ease-in-out infinite }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 8px var(--green1),0 0 18px rgba(0,255,136,.45)} 50%{box-shadow:0 0 16px var(--green1),0 0 36px rgba(0,255,136,.6)} }
+    .trust-row{
+      margin-top:21px; display:flex; align-items:center; gap:10px; color:#a5f3c7; font-size:17px;
     }
-    .can-label {
-      margin-top: 18px;
-      font-size: 1.1em;
-      font-weight: bold;
-      color: var(--green2);
-      letter-spacing: 1px;
-      text-shadow: 0 0 8px var(--green1);
-      text-align: center;
+    .trust-icon{ width:24px; height:24px; vertical-align:middle; filter:drop-shadow(0 0 4px var(--green1));}
+    .hero__right{ display:grid; place-items:center }
+    /* Flavors grid with custom can renders */
+    .section-title{ font-size: clamp(22px, 2.6vw, 34px); margin:48px 18px 10px }
+    .zine{ padding: 10px 18px 32px }
+    .zine__grid{
+      display:grid; gap:18px; grid-template-columns: repeat(12, 1fr);
     }
-    .flavor-note {
-      color: var(--pink2);
-      font-size: .97em;
-      margin-top: 5px;
-      text-align: center;
+    .poster{
+      grid-column: span 6;
+      min-height: 200px;
+      padding:22px; border-radius:18px;
+      background:
+        rgba(18,18,20,0.88);
+      border:1.5px solid #191d1a;
+      box-shadow:0 3px 16px rgba(0,255,136,0.04);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      position:relative;
+      z-index:2;
     }
-    @media (max-width: 900px) {
-      .flavors-row { flex-direction: column; gap: 18px; }
-      .can-card { width: 95vw; max-width: 340px; }
+    .poster h3{ margin:18px 0 6px; font-size:22px; color:var(--green1); text-shadow:0 0 10px var(--green1), 0 0 18px var(--green3) }
+    .poster--pink h3{ color:var(--pink1); text-shadow:0 0 10px var(--pink1), 0 0 22px var(--pink2) }
+    .poster--dark h3{ color:var(--gray); text-shadow:0 0 10px var(--green1), 0 0 18px var(--green3) }
+    .poster p{ margin:0; color:var(--gray); font-size:18px }
+    .flavor-note{ color:var(--pink2); font-size: .97em; margin-top: 5px; text-align: center; }
+    .can-svg-wrap{ margin-bottom: 8px; }
+    /* Custom SVG can styling */
+    .can-svg{ display:block; margin:0 auto; }
+    /* Order, Contact, Glass, Footer - minimal restyle for brand */
+    .order, .glass, .contact{ padding: 18px 18px 60px }
+    .order__form{
+      display:grid; gap:15px; max-width:560px; background:#15181b; border:1.5px solid #191d1a; border-radius:18px; padding:22px; box-shadow: var(--shadow);
+    }
+    .order__form label{ display:grid; gap:6px; font-size:16px; color:#d2e8d2 }
+    .order__form input, .order__form select{
+      background:#131c17; color:var(--gray); border:1.5px solid #123e2b; border-radius:10px; padding:11px 12px; outline:none; font-size:16px;
+    }
+    .order__form input:focus, .order__form select:focus{ border-color:#1bdc82; box-shadow: 0 0 0 3px rgba(27,220,130,.13) }
+    .order-help{ color:var(--muted); margin-top:2px; font-size:14px }
+    .form-msg{ margin-top:8px; font-weight:600; font-size:16px }
+    .delivery-info{ margin-top:17px; color:#9de3b1; font-size:16px; display:flex; align-items:center; gap:8px }
+    .icon-delivery{ font-size:21px; }
+    .contact-ways{ display:flex; flex-direction:column; gap:7px; font-size:17px; margin-top:8px }
+    .contact-ways a{ color:var(--green1); text-decoration:underline; font-weight:500 }
+    .faq-note{ margin-top:12px; color:var(--muted); font-size:15px }
+    .footer{ padding:24px 18px; color:#9fb29f; border-top:1px solid #121212; text-align:center; font-size:15px }
+    .footer a{ color:var(--green1); text-decoration:none; margin-left:6px }
+    .footer a:hover{ text-decoration:underline }
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{ grid-template-columns:1fr; text-align:center }
+      .hero__left{ justify-self:center }
+      .zine__grid{ grid-template-columns: repeat(6, 1fr) }
+      .poster{ grid-column: span 6 }
+      .nav a{ margin-left:12px }
+    }
+    @media (max-width:600px){
+      .section-title{ margin:38px 8px 8px }
+      .footer, .order, .glass, .zine, .contact{ padding-left:7px; padding-right:7px }
+      .zine__grid{ grid-template-columns: 1fr }
+      .poster{ min-width:0; }
     }
   </style>
 </head>
@@ -157,62 +203,199 @@
       <path d="M400,770 l950,-630" stroke="#ff3ea5" stroke-width="9" opacity="0.13"/>
     </svg>
   </div>
-
-  <div class="main-content">
-    <div class="logo">Kanty</div>
-    <div style="font-size:1.45em; font-weight:bold; color:var(--gray); margin-bottom:28px;">
-      Neon Graffiti Parallax + Can Renders Preview
-    </div>
-    <div class="flavors-row">
-      <!-- Green Tea Can -->
-      <div class="can-card">
-        <svg width="80" height="160" viewBox="0 0 80 160" fill="none">
-          <!-- Can body -->
-          <rect x="8" y="16" width="64" height="128" rx="22" fill="#181b1e" stroke="#00ff88" stroke-width="3.2"/>
-          <!-- Graffiti label -->
-          <ellipse cx="40" cy="80" rx="28" ry="38" fill="#00ff8840"/>
-          <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#00ff88" stroke="#212124" stroke-width="1.3" paint-order="stroke" style="letter-spacing:1.2px">K</text>
-          <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">Green</text>
-          <!-- Neon shine -->
-          <ellipse cx="28" cy="40" rx="9" ry="4" fill="#19f9d8" opacity="0.43"/>
-        </svg>
-        <div class="can-label" style="color:var(--green2)">Green Tea</div>
-        <div class="flavor-note">Bold & Smooth</div>
-      </div>
-      <!-- Hibiscus Can -->
-      <div class="can-card">
-        <svg width="80" height="160" viewBox="0 0 80 160" fill="none">
-          <rect x="8" y="16" width="64" height="128" rx="22" fill="#201016" stroke="#ff3ea5" stroke-width="3.2"/>
-          <ellipse cx="40" cy="80" rx="28" ry="38" fill="#ff3ea540"/>
-          <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#ff3ea5" stroke="#181b1e" stroke-width="1.3" paint-order="stroke" style="letter-spacing:1.2px">K</text>
-          <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">Hibiscus</text>
-          <ellipse cx="52" cy="34" rx="8" ry="4" fill="#ff60bb" opacity="0.34"/>
-        </svg>
-        <div class="can-label" style="color:var(--pink1)">Hibiscus</div>
-        <div class="flavor-note">Mango Punch</div>
-      </div>
-      <!-- Black Tea Can -->
-      <div class="can-card">
-        <svg width="80" height="160" viewBox="0 0 80 160" fill="none">
-          <rect x="8" y="16" width="64" height="128" rx="22" fill="#181818" stroke="#9affca" stroke-width="3.2"/>
-          <ellipse cx="40" cy="80" rx="28" ry="38" fill="#21212490"/>
-          <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#00ff88" stroke="#0a0a0a" stroke-width="1.3" paint-order="stroke" style="letter-spacing:1.2px">K</text>
-          <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">Black</text>
-          <ellipse cx="36" cy="38" rx="7" ry="3" fill="#fff" opacity="0.14"/>
-        </svg>
-        <div class="can-label" style="color:var(--gray)">Black Tea</div>
-        <div class="flavor-note" style="color:var(--green1)">Street Classic</div>
-      </div>
+  <!-- Main site content -->
+  <header class="topbar" role="banner">
+    <div class="brand" tabindex="0">Kanty</div>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#flavors">Flavors</a>
+      <a href="#why">Why Kanty</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>All Natural • No HFCS • Fresh Local Delivery • Bold Flavors • Graffiti Vibes • Small-Batch Crafted • </span>
+      <span>All Natural • No HFCS • Fresh Local Delivery • Bold Flavors • Graffiti Vibes • Small-Batch Crafted • </span>
     </div>
   </div>
+  <!-- Split Hero -->
+  <main>
+    <section class="hero" aria-labelledby="main-headline">
+      <div class="hero__left">
+        <h1 id="main-headline" class="headline">
+          Refreshingly Bold. Crafted for You.
+        </h1>
+        <p class="sub">
+          Discover Kanty: street-inspired iced teas, hand-brewed with real ingredients. Delivered fresh in Coatesville. Taste the neon difference.
+        </p>
+        <a class="btn btn-glow" href="#order" aria-label="Order Kanty now">Order Now</a>
+        <div class="trust-row">
+          <img src="assets/secure.svg" alt="Safe checkout" class="trust-icon" />
+          <span>Secure ordering • Local delivery • Satisfaction guaranteed</span>
+        </div>
+      </div>
+      <div class="hero__right">
+        <!-- Optional: Add a hero can SVG here if you want a large featured can -->
+      </div>
+    </section>
+    <!-- Flavors Grid with SVG can renders -->
+    <section id="flavors" class="zine" aria-labelledby="flavors-title">
+      <h2 class="section-title" id="flavors-title">Our Flavors</h2>
+      <div class="zine__grid">
+        <!-- Green Tea -->
+        <article class="poster card card--tilt" aria-label="Green Tea">
+          <div class="can-svg-wrap">
+            <svg class="can-svg" width="80" height="160" viewBox="0 0 80 160" fill="none">
+              <rect x="8" y="16" width="64" height="128" rx="22" fill="#181b1e" stroke="#00ff88" stroke-width="3.2"/>
+              <ellipse cx="40" cy="80" rx="28" ry="38" fill="#00ff8840"/>
+              <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#00ff88" stroke="#212124" stroke-width="1.3" paint-order="stroke" style="letter-spacing:1.2px">K</text>
+              <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">Green</text>
+              <ellipse cx="28" cy="40" rx="9" ry="4" fill="#19f9d8" opacity="0.43"/>
+            </svg>
+          </div>
+          <h3>Green Tea</h3>
+          <p>Crisp green with a neon twist.</p>
+          <div class="flavor-note">All natural • No HFCS</div>
+        </article>
+        <!-- Hibiscus -->
+        <article class="poster poster--pink card card--tilt" aria-label="Hibiscus">
+          <div class="can-svg-wrap">
+            <svg class="can-svg" width="80" height="160" viewBox="0 0 80 160" fill="none">
+              <rect x="8" y="16" width="64" height="128" rx="22" fill="#201016" stroke="#ff3ea5" stroke-width="3.2"/>
+              <ellipse cx="40" cy="80" rx="28" ry="38" fill="#ff3ea540"/>
+              <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#ff3ea5" stroke="#181b1e" stroke-width="1.3" paint-order="stroke" style="letter-spacing:1.2px">K</text>
+              <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">Hibiscus</text>
+              <ellipse cx="52" cy="34" rx="8" ry="4" fill="#ff60bb" opacity="0.34"/>
+            </svg>
+          </div>
+          <h3>Hibiscus</h3>
+          <p>Tart hibiscus with juicy mango.</p>
+          <div class="flavor-note">Antioxidant-rich</div>
+        </article>
+        <!-- Black Tea -->
+        <article class="poster poster--dark card card--tilt" aria-label="Black Tea">
+          <div class="can-svg-wrap">
+            <svg class="can-svg" width="80" height="160" viewBox="0 0 80 160" fill="none">
+              <rect x="8" y="16" width="64" height="128" rx="22" fill="#181818" stroke="#9affca" stroke-width="3.2"/>
+              <ellipse cx="40" cy="80" rx="28" ry="38" fill="#21212490"/>
+              <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#00ff88" stroke="#0a0a0a" stroke-width="1.3" paint-order="stroke" style="letter-spacing:1.2px">K</text>
+              <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">Black</text>
+              <ellipse cx="36" cy="38" rx="7" ry="3" fill="#fff" opacity="0.14"/>
+            </svg>
+          </div>
+          <h3>Black Tea</h3>
+          <p>Deep, clean, and subtly sweet.</p>
+          <div class="flavor-note">Small-batch brewed</div>
+        </article>
+        <!-- White Tea -->
+        <article class="poster poster--alt card card--tilt" aria-label="White Tea">
+          <div class="can-svg-wrap">
+            <svg class="can-svg" width="80" height="160" viewBox="0 0 80 160" fill="none">
+              <rect x="8" y="16" width="64" height="128" rx="22" fill="#22291a" stroke="#fff" stroke-width="2.2"/>
+              <ellipse cx="40" cy="80" rx="28" ry="38" fill="#cfe9cf40"/>
+              <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#e7ffe7" stroke="#212124" stroke-width="1.1" paint-order="stroke" style="letter-spacing:1.2px">K</text>
+              <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">White</text>
+              <ellipse cx="45" cy="35" rx="10" ry="3" fill="#fff" opacity="0.21"/>
+            </svg>
+          </div>
+          <h3>White Tea</h3>
+          <p>Light gold, silky finish.</p>
+          <div class="flavor-note">Handcrafted</div>
+        </article>
+      </div>
+      <div class="ingredients-note" style="color:var(--muted); font-size:15px; margin:20px 0 0 5px">
+        <strong>Ingredients:</strong> Water, tea leaves, cane sugar, fruit, natural flavors. No artificial additives. <a href="#contact" style="color:var(--green1)">Questions?</a>
+      </div>
+    </section>
+    <!-- Why Kanty -->
+    <section id="why" class="glass" aria-labelledby="why-title">
+      <h2 class="section-title" id="why-title">Why Kanty?</h2>
+      <div class="glass__wrap" style="display:grid; grid-template-columns: repeat(3,1fr); gap:18px;">
+        <div class="glass__card">
+          <h3>All Natural</h3>
+          <p>No high fructose corn syrup, no artificial ingredients. Only honest, real flavor.</p>
+        </div>
+        <div class="glass__card">
+          <h3>Small-Batch Freshness</h3>
+          <p>Hand-brewed in small batches for quality you can taste.</p>
+        </div>
+        <div class="glass__card">
+          <h3>Graffiti Spirit</h3>
+          <p>Bold flavor, street art vibes. Our cans light up your fridge—and your day.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Order -->
+    <section id="order" class="order" aria-labelledby="order-title">
+      <h2 class="section-title" id="order-title">Order in Coatesville</h2>
+      <form class="order__form" id="kantyForm" autocomplete="off" aria-describedby="order-help">
+        <label>
+          Name
+          <input required type="text" name="name" placeholder="Your name" aria-required="true" />
+        </label>
+        <label>
+          Flavor
+          <select required name="flavor" id="flavor" aria-required="true">
+            <option value="">Select flavor</option>
+            <option>Green Tea — Bold & Smooth</option>
+            <option>Hibiscus — Mango Punch</option>
+            <option>Black Tea — Street Classic</option>
+            <option>White Tea — Silver Rush</option>
+          </select>
+        </label>
+        <label>
+          Quantity
+          <input required type="number" name="quantity" min="1" max="24" value="2" aria-required="true" />
+        </label>
+        <label>
+          Contact (Phone or IG)
+          <input required type="text" name="contact" placeholder="484-753-7531 or @kanticedtea" aria-required="true" />
+        </label>
+        <button class="btn btn-glow" type="submit">Send Order</button>
+        <div id="order-help" class="order-help">We’ll text or DM to confirm your order. Your info stays private.</div>
+        <div id="form-msg" role="alert" class="form-msg" style="display:none"></div>
+      </form>
+      <div class="delivery-info">
+        <span class="icon-delivery" aria-hidden="true">🚗</span> <strong>Fresh delivery in Coatesville</strong> — usually within 24 hours!
+      </div>
+    </section>
+    <!-- Contact/FAQ -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact & Info</h2>
+      <div class="contact-ways">
+        <div>
+          <strong>DM Instagram:</strong> <a href="https://instagram.com/kanticedtea" rel="noopener" target="_blank">@kanticedtea</a>
+        </div>
+        <div>
+          <strong>Email:</strong> <a href="mailto:kantytea@gmail.com">kantytea@gmail.com</a>
+        </div>
+        <div>
+          <strong>Phone:</strong> <a href="tel:4847537531">484-753-7531</a>
+        </div>
+      </div>
+      <div class="faq-note">
+        <strong>Got questions?</strong> We’re happy to help. Reach out any time!
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© <span id="year"></span> Kanty — All rights reserved. | <a href="#contact">Contact</a></p>
+  </footer>
   <script>
-    // Parallax effect for all .graffiti-layer elements
+    // Parallax effect for graffiti layers
     window.addEventListener('scroll', function() {
       const scrollY = window.scrollY;
       document.querySelectorAll('.graffiti-layer').forEach((el, idx) => {
         const speed = 0.16 + idx * 0.08;
         el.style.transform = `translateY(${scrollY * speed}px)`;
       });
+    });
+    // Set footer year
+    document.addEventListener('DOMContentLoaded', function() {
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
     });
   </script>
 </body>
