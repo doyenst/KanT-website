@@ -16,6 +16,7 @@
       --black: #121214;
       --black2: #212124;
       --bg-dark: #0a0a0a;
+      --bg-light: #fff;
       --white: #fff;
       --gray: #dedede;
       --muted: #a7b1a7;
@@ -32,25 +33,37 @@
       font-family: var(--font-main);
       min-height: 100vh;
       overflow-x: hidden;
+      transition: background 0.23s, color 0.23s;
     }
-    /* Parallax graffiti */
-    .parallax-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
+    body.light {
+      background: var(--bg-light);
+      color: #252525;
     }
-    .graffiti-layer {
-      position: absolute;
-      width: 130vw; height: 130vh;
-      left: -15vw; top: -15vh;
-      will-change: transform;
-      opacity: 0.75;
-      z-index: 1;
+    body.light .topbar,
+    body.light .footer {
+      background: #f7f7f7 !important;
+      color: #242424 !important;
+      border-bottom: 1px solid #e4e4e4;
     }
-    .graffiti-layer2 { opacity: 0.32; z-index: 2; }
-    .graffiti-layer3 { opacity: 0.17; z-index: 3; }
+    body.light .brand { color: var(--green1); }
+    body.light .marquee, body.light .marquee__track { background: #f2f2f2; }
+    body.light .poster, body.light .poster--pink, body.light .poster--dark, body.light .poster--alt {
+      background: rgba(230,230,230,0.97);
+      color: #131313;
+    }
+    body.light .section-title { color: #252525; }
+    body.light .can-label { color: var(--green2) !important; }
+    body.light .order__form, body.light .glass__card, body.light .contact { background: #fafafa !important; color: #1a1a1a;}
+    body.light .nav a { color: #232323; }
+    body.light .footer { color: #444; border-top:1px solid #eee; }
+    body.light .can-svg text { fill: #00ff88 !important; }
+    /* Parallax graffiti - adjust for light mode */
+    body.light .parallax-bg .graffiti-layer,
+    body.light .parallax-bg .graffiti-layer2,
+    body.light .parallax-bg .graffiti-layer3 {
+      opacity: 0.45 !important;
+      filter: brightness(1.18) saturate(0.78);
+    }
     /* Topbar */
     .topbar{
       position: sticky; top:0; z-index:1000;
@@ -59,10 +72,16 @@
       border-bottom:1px solid #141414;
       box-shadow:0 2px 16px rgba(0,0,0,0.10);
     }
-    .brand{ font-weight:900; letter-spacing:.5px; font-size:26px; color:var(--green1); text-shadow:var(--brand-shadow); outline:none }
+    .brand{ font-weight:900; letter-spacing:.5px; font-size:26px; color:var(--green1); text-shadow:var(--brand-shadow); outline:none; cursor:pointer; }
     .brand:focus{ outline:2px solid var(--neon) }
     .nav a{ color:var(--gray); text-decoration:none; margin-left:16px; opacity:.85; font-weight:500; border-radius:6px; padding:4px 10px; transition:background .15s }
     .nav a:hover, .nav a:focus{ opacity:1; background:rgba(255,255,255,0.06) }
+    .mode-toggle {
+      margin-left:18px; border:none; background:none; cursor:pointer;
+      font-size:1.7em; color:var(--green1); outline:none; transition:color .18s;
+      vertical-align:middle; position:relative; top:2px;
+    }
+    .mode-toggle:active { color:var(--pink1); }
     /* Marquee */
     .marquee{ overflow:hidden; border-block:1px solid #121212; background:#0e0e0f }
     .marquee__track{ display:flex; gap:30px; padding:8px 0; animation:scroll 28s linear infinite; will-change: transform; }
@@ -134,6 +153,39 @@
     .footer{ padding:24px 18px; color:#9fb29f; border-top:1px solid #121212; text-align:center; font-size:15px }
     .footer a{ color:var(--green1); text-decoration:none; margin-left:6px }
     .footer a:hover{ text-decoration:underline }
+    /* Mini-game modal */
+    .spray-modal {
+      display: none;
+      position: fixed; z-index: 2000; inset: 0;
+      background: rgba(10,10,10,0.89);
+      backdrop-filter: blur(7px) saturate(1.2);
+      align-items: center; justify-content: center;
+      flex-direction: column;
+      animation: fadein 0.4s;
+    }
+    .spray-modal.active { display: flex; }
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    .spray-canvas-wrap { background: #15181b; border-radius: 18px; padding: 13px 7px 8px; box-shadow: 0 6px 32px 0 rgba(0,0,0,0.36); }
+    .spray-modal h2 { color: var(--green1); font-size: 1.7em; margin-bottom: 0.3em; }
+    .spray-modal .mini-tip { color: var(--muted); margin-bottom: 0.8em; font-size: 1em;}
+    .close-spray-btn {
+      background: var(--pink1); color: #fff; border: none;
+      border-radius: 99px; font-size: 1.07em; font-weight: 600;
+      padding: 10px 18px; margin-top: 17px; cursor: pointer;
+      box-shadow: 0 0 10px var(--pink1);
+      transition: background .13s;
+    }
+    .close-spray-btn:hover { background: var(--green1); color: #161616; }
+    .spray-reveal {
+      position: absolute; left: 0; right: 0; bottom: 14%; text-align: center; font-size: 1.5em; font-weight: 900;
+      color: var(--pink1); text-shadow: 0 0 16px var(--green1), 0 0 30px var(--pink1);
+      letter-spacing: 2px; opacity: 0; pointer-events: none;
+      animation: revealmsg 1.1s cubic-bezier(.28,1.16,.38,1.01) forwards;
+      animation-delay: .35s;
+    }
+    @keyframes revealmsg { 0% { opacity: 0; transform: translateY(12px);}
+      100% { opacity: 1; transform: none;}
+    }
     /* Responsive */
     @media (max-width: 980px){
       .hero{ grid-template-columns:1fr; text-align:center }
@@ -147,13 +199,13 @@
       .footer, .order, .glass, .zine, .contact{ padding-left:7px; padding-right:7px }
       .zine__grid{ grid-template-columns: 1fr }
       .poster{ min-width:0; }
+      .spray-modal .spray-canvas-wrap { padding: 7px 0 7px; }
     }
   </style>
 </head>
 <body>
   <!-- Parallax graffiti backgrounds -->
   <div class="parallax-bg">
-    <!-- Pink graffiti spray splatter -->
     <svg class="graffiti-layer" width="100%" height="100%" viewBox="0 0 1800 900">
       <ellipse cx="400" cy="210" rx="260" ry="80" fill="url(#pinkSpray)" />
       <ellipse cx="1200" cy="760" rx="180" ry="60" fill="url(#pinkSpray2)" />
@@ -167,11 +219,9 @@
           <stop offset="100%" stop-color="#ff3ea5" stop-opacity="0"/>
         </radialGradient>
       </defs>
-      <!-- Abstract tags -->
       <path d="M270,150 q60,90 150,20 t100,20" stroke="#ff3ea5" stroke-width="8" fill="none" opacity="0.5"/>
       <path d="M1400,810 q-70,-30 60,-80" stroke="#ff60bb" stroke-width="7" fill="none" opacity="0.4"/>
     </svg>
-    <!-- Green spray, tags -->
     <svg class="graffiti-layer graffiti-layer2" width="100%" height="100%" viewBox="0 0 1800 900">
       <ellipse cx="1000" cy="300" rx="220" ry="60" fill="url(#greenSpray)" />
       <ellipse cx="600" cy="700" rx="140" ry="40" fill="url(#greenSpray2)" />
@@ -188,7 +238,6 @@
       <path d="M1100,370 q70,70 170,-10" stroke="#00ff88" stroke-width="9" fill="none" opacity="0.3"/>
       <path d="M700,720 q-30,60 60,10" stroke="#0aff5a" stroke-width="7" fill="none" opacity="0.28"/>
     </svg>
-    <!-- Black, gray shapes for depth -->
     <svg class="graffiti-layer graffiti-layer3" width="100%" height="100%" viewBox="0 0 1800 900">
       <ellipse cx="900" cy="450" rx="700" ry="350" fill="url(#blackFade)" />
       <defs>
@@ -198,19 +247,29 @@
           <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
         </radialGradient>
       </defs>
-      <!-- Abstract black/pink intersecting lines -->
       <path d="M300,200 l1200,500" stroke="#121214" stroke-width="18" opacity="0.08"/>
       <path d="M400,770 l950,-630" stroke="#ff3ea5" stroke-width="9" opacity="0.13"/>
     </svg>
   </div>
+  <!-- Mini-game Modal -->
+  <div class="spray-modal" id="sprayModal" role="dialog" aria-modal="true" aria-labelledby="spray-headline">
+    <div class="spray-canvas-wrap">
+      <h2 id="spray-headline">Graffiti Spray Wall</h2>
+      <div class="mini-tip">Use your finger (or mouse) to spray neon paint! Fill the wall to reveal the secret message.</div>
+      <canvas id="sprayCanvas" width="320" height="380" style="background:#191b1e; border-radius:16px; border:2.3px solid #232323; touch-action: none; display:block; margin:0 auto;"></canvas>
+      <div class="spray-reveal" id="sprayReveal" style="display:none;">Kanty &lt;3 Stay Bold!</div>
+      <button class="close-spray-btn" onclick="closeSprayModal()">Close</button>
+    </div>
+  </div>
   <!-- Main site content -->
   <header class="topbar" role="banner">
-    <div class="brand" tabindex="0">Kanty</div>
+    <div class="brand" id="kantyBrand" tabindex="0">Kanty</div>
     <nav class="nav" aria-label="Main navigation">
       <a href="#flavors">Flavors</a>
       <a href="#why">Why Kanty</a>
       <a href="#order">Order</a>
       <a href="#contact">Contact</a>
+      <button class="mode-toggle" id="toggleMode" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">🌙</button>
     </nav>
   </header>
   <!-- Marquee -->
@@ -236,9 +295,7 @@
           <span>Secure ordering • Local delivery • Satisfaction guaranteed</span>
         </div>
       </div>
-      <div class="hero__right">
-        <!-- Optional: Add a hero can SVG here if you want a large featured can -->
-      </div>
+      <div class="hero__right"></div>
     </section>
     <!-- Flavors Grid with SVG can renders -->
     <section id="flavors" class="zine" aria-labelledby="flavors-title">
@@ -384,7 +441,7 @@
     <p>© <span id="year"></span> Kanty — All rights reserved. | <a href="#contact">Contact</a></p>
   </footer>
   <script>
-    // Parallax effect for graffiti layers
+    // Parallax graffiti
     window.addEventListener('scroll', function() {
       const scrollY = window.scrollY;
       document.querySelectorAll('.graffiti-layer').forEach((el, idx) => {
@@ -397,6 +454,89 @@
       var y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
     });
+    // Dark/Light mode
+    const modeToggle = document.getElementById('toggleMode');
+    function setMode(m) {
+      document.body.classList.toggle('light', m === 'light');
+      localStorage.setItem('kanty-mode', m);
+      modeToggle.textContent = m === 'light' ? '🌞' : '🌙';
+    }
+    function getMode() {
+      return localStorage.getItem('kanty-mode') === 'light' ? 'light' : 'dark';
+    }
+    modeToggle.onclick = function() {
+      setMode(getMode() === 'dark' ? 'light' : 'dark');
+    };
+    // On load
+    document.addEventListener('DOMContentLoaded', function() {
+      setMode(getMode());
+    });
+    // Mini-game modal logic
+    let brandClicks = 0, clickTimeout;
+    const brand = document.getElementById('kantyBrand');
+    const modal = document.getElementById('sprayModal');
+    brand.addEventListener('click', function() {
+      brandClicks++;
+      clearTimeout(clickTimeout);
+      clickTimeout = setTimeout(()=>brandClicks=0, 1200);
+      if (brandClicks === 3) {
+        brandClicks = 0;
+        openSprayModal();
+      }
+    });
+    function openSprayModal() {
+      modal.classList.add('active');
+      startSprayGame();
+    }
+    function closeSprayModal() {
+      modal.classList.remove('active');
+      stopSprayGame();
+    }
+    // Spray game
+    let sprayCanvas, sprayCtx, spraying=false, sprayPoints=0, sprayRevealShown=false;
+    function startSprayGame() {
+      sprayCanvas = document.getElementById('sprayCanvas');
+      sprayCtx = sprayCanvas.getContext('2d');
+      sprayCtx.clearRect(0,0,sprayCanvas.width,sprayCanvas.height);
+      sprayPoints = 0; sprayRevealShown = false;
+      document.getElementById('sprayReveal').style.display = 'none';
+      sprayCanvas.addEventListener('pointerdown', sprayStart);
+      sprayCanvas.addEventListener('pointerup', sprayEnd);
+      sprayCanvas.addEventListener('pointerout', sprayEnd);
+      sprayCanvas.addEventListener('pointermove', sprayMove);
+      sprayCanvas.addEventListener('touchmove', function(e){e.preventDefault();},{passive:false});
+    }
+    function stopSprayGame() {
+      sprayCanvas.removeEventListener('pointerdown', sprayStart);
+      sprayCanvas.removeEventListener('pointerup', sprayEnd);
+      sprayCanvas.removeEventListener('pointerout', sprayEnd);
+      sprayCanvas.removeEventListener('pointermove', sprayMove);
+    }
+    function sprayStart(e) { spraying=true; sprayMove(e);}
+    function sprayEnd(e) { spraying=false;}
+    function sprayMove(e) {
+      if (!spraying) return;
+      const rect = sprayCanvas.getBoundingClientRect();
+      let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+      let y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+      for (let i=0;i<7;i++) {
+        let angle = Math.random()*2*Math.PI, r = Math.random()*13;
+        let dx = Math.cos(angle)*r, dy = Math.sin(angle)*r;
+        sprayCtx.beginPath();
+        sprayCtx.arc(x+dx, y+dy, Math.random()*4+1.4, 0, 2*Math.PI);
+        sprayCtx.fillStyle = Math.random()>.5 ? "#00ff88cc" : "#ff3ea5bb";
+        sprayCtx.shadowColor = "#00ff88";
+        sprayCtx.shadowBlur = 8;
+        sprayCtx.globalAlpha = 0.8+Math.random()*0.18;
+        sprayCtx.fill();
+        sprayCtx.shadowBlur = 0;
+      }
+      sprayPoints += 1;
+      if (sprayPoints > 110 && !sprayRevealShown) {
+        sprayRevealShown = true;
+        document.getElementById('sprayReveal').style.display = '';
+      }
+    }
   </script>
 </body>
 </html>
