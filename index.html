@@ -1,226 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KanT Iced Tea</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background-color: #000;
-      color: #0f0;
-      font-family: 'Rubik Spray Paint', cursive;
-      overflow-x: hidden;
-    }
-
-    /* ATTENTION BANNER */
-    .alert-banner {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background: #000;
-      padding: 14px 18px 12px 18px;
-      text-align: center;
-      font-size: 1.05em;
-      line-height: 1.4;
-      letter-spacing: 1px;
-      border-bottom: 3px solid #0f0;
-      box-shadow: 0 0 22px #0f0, 0 0 10px #090 inset;
-      animation: bannerPulse 2.2s ease-in-out infinite;
-    }
-    .alert-banner a {
-      color: #0f0;
-      text-decoration: underline;
-    }
-    .alert-banner a:hover {
-      color: #fff;
-    }
-    .alert-icon {
-      display: inline-block;
-      margin-right: 8px;
-      font-size: 1.2em;
-      animation: blinkIcon 0.9s linear infinite;
-      filter: drop-shadow(0 0 6px #0f0);
-    }
-    @keyframes blinkIcon {
-      0%, 60% { opacity: 1; transform: scale(1); }
-      30% { opacity: 0.25; transform: scale(1.15); }
-      100% { opacity: 1; }
-    }
-    @keyframes bannerPulse {
-      0%, 100% { box-shadow: 0 0 22px #0f0, 0 0 10px #090 inset; }
-      50% { box-shadow: 0 0 8px #0f0, 0 0 4px #060 inset; }
-    }
-
-    nav {
-      background: #111;
-      padding: 16px 0;
-      text-align: center;
-      position: sticky;
-      top: 66px; /* sits just under the alert banner */
-      z-index: 20;
-      box-shadow: 0 3px 12px #090;
-    }
-    nav a {
-      color: #0f0;
-      margin: 0 18px;
-      text-decoration: none;
-      font-size: 1.2em;
-      text-shadow: 0 0 5px #0f0;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-    .hero {
-      text-align: center;
-      padding: 60px 18px 32px 18px;
-    }
-    .hero h1 {
-      font-size: 3em;
-      text-shadow: 0 0 18px #0f0;
-      margin-bottom: 16px;
-      letter-spacing: 3px;
-    }
-    .hero p {
-      font-size: 1.3em;
-      margin: 20px 0 36px 0;
-      color: #fff;
-      text-shadow: 0 0 6px #0f0;
-    }
-    .order-button {
-      padding: 15px 32px;
-      background: #000;
-      color: #0f0;
-      border: 2px solid #0f0;
-      cursor: pointer;
-      font-size: 1.1em;
-      border-radius: 10px;
-      text-shadow: 0 0 5px #0f0;
-      transition: all 0.2s;
-      margin-bottom: 18px;
-    }
-    .order-button:hover {
-      background: #0f0;
-      color: #000;
-      box-shadow: 0 0 12px #0f0;
-    }
-    .section {
-      background: #111;
-      border-radius: 18px;
-      padding: 28px 18px;
-      margin: 24px auto;
-      max-width: 700px;
-      box-shadow: 0 0 18px #0f0;
-    }
-    .section h2 {
-      text-shadow: 0 0 10px #0f0;
-      font-size: 2em;
-      margin-bottom: 12px;
-      color: #0f0;
-      letter-spacing: 2px;
-    }
-    .section p {
-      color: #fff;
-      font-size: 1.13em;
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-    .pay-buttons {
-      margin: 18px 0 0 0;
-    }
-    .pay-buttons a {
-      display: inline-block;
-      padding: 12px 24px;
-      background: #0f0;
-      color: #000;
-      text-align: center;
-      text-decoration: none;
-      margin: 8px 8px 0 0;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1em;
-      box-shadow: 0 0 6px #0f0;
-      transition: background 0.2s;
-    }
-    .pay-buttons a:hover {
-      background: #fff;
-      color: #090;
-    }
-    .neon-blink {
-      color: #0f0;
-      animation: blink 2s infinite;
-      text-shadow: 0 0 5px #0f0;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-    footer {
-      text-align: center;
-      padding: 18px 0 12px 0;
-      background: #111;
-      color: #0f0;
-      font-size: 1em;
-      letter-spacing: 1px;
-      margin-top: 32px;
-      box-shadow: 0 -2px 12px #090;
-    }
-    @media (max-width: 700px) {
-      .hero h1 { font-size: 2em; }
-      nav a { font-size: 1em; }
-      .section { padding: 16px 6px; }
-      .section h2 { font-size: 1.3em; }
-      .alert-banner { font-size: 0.95em; padding: 12px 10px 10px; }
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kanty — Graffiti Neon Tea</title>
+  <meta name="description" content="Kanty iced tea: all natural, no high fructose corn syrup. Fresh, hand-brewed, with local delivery in Coatesville. Try our bold flavors!" />
+  <link rel="preload" as="image" href="assets/brick-dark.webp">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- HIGH-ATTENTION WARNING BANNER -->
-  <div class="alert-banner" role="alert" aria-live="assertive">
-    <span class="alert-icon">⚠️</span>
-    If you ALREADY PAID but have NOT sent a delivery address, DM
-    <a href="https://instagram.com/kanticedtea" target="_blank">@kanticedtea</a>
-    on Instagram WITH your delivery info NOW. No address = no drink & NO REFUNDS.
+  <header class="topbar" role="banner">
+    <div class="brand neon" tabindex="0">Kanty</div>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#flavors">Flavors</a>
+      <a href="#why">Why Kanty</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>All Natural • No HFCS • Fresh Local Delivery • Bold Flavors • Graffiti Vibes • Small-Batch Crafted • </span>
+      <span>All Natural • No HFCS • Fresh Local Delivery • Bold Flavors • Graffiti Vibes • Small-Batch Crafted • </span>
+    </div>
   </div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="flavors.html">Flavors</a>
-    <a href="order.html">Order</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="terms.html">Terms</a>
-    <a href="reviews.html">Reviews</a>
-  </nav>
+  <!-- Split Hero -->
   <main>
-    <div class="hero">
-      <h1 class="neon-blink">kanty</h1>
-      <p>Bold, fresh, and local. Delivery only in Coatesville.<br>Order now and enjoy neon vibes in every sip!</p>
-      <a href="order.html" class="order-button">Place Your Order</a>
-    </div>
-    <div class="section">
-      <h2>How to Order</h2>
-      <p>Choose your favorite flavor, fill out the order form, and pay securely.<br><b>Delivery area:</b> Coatesville only.</p>
-      <div class="pay-buttons">
-        <a href="https://cash.app/$findtheself" target="_blank">Pay with Cash App</a>
-        <a href="https://paypal.me/Iamdoyen" target="_blank">Pay with PayPal</a>
+    <section class="hero" aria-labelledby="main-headline">
+      <div class="hero__left">
+        <h1 id="main-headline" class="headline neon-flicker">
+          Refreshingly Bold. Crafted for You.
+        </h1>
+        <p class="sub">
+          Discover Kanty: street-inspired iced teas, hand-brewed with real ingredients. Delivered fresh in Coatesville. Taste the neon difference.
+        </p>
+        <a class="btn btn-glow" href="#order" aria-label="Order Kanty now">Order Now</a>
+        <div class="trust-row">
+          <img src="assets/secure.svg" alt="Safe checkout" class="trust-icon" />
+          <span>Secure ordering • Local delivery • Satisfaction guaranteed</span>
+        </div>
       </div>
-    </div>
-    <div class="section">
-      <h2>Contact & Social</h2>
-      <p>Questions or feedback? <br>
-        <b>Email:</b> <a href="mailto:doyenthefirst@gmail.com">doyenthefirst@gmail.com</a> <br>
-        <b>Phone:</b> <a href="tel:4847537531">484-753-7531</a> <br>
-        <b>Instagram:</b> <a href="https://instagram.com/kanticedtea" target="_blank">@kanticedtea</a>
-      </p>
-    </div>
+      <div class="hero__right">
+        <div class="can" aria-label="Kanty can fill indicator">
+          <div class="fill" style="--level: 18%"></div>
+          <div class="can__label">Kanty</div>
+        </div>
+        <div class="spray-glow"></div>
+      </div>
+    </section>
+
+    <!-- Flavors Grid -->
+    <section id="flavors" class="zine" aria-labelledby="flavors-title">
+      <h2 class="section-title" id="flavors-title">Our Flavors</h2>
+      <div class="zine__grid">
+        <article class="poster card card--tilt" aria-label="Green Tea">
+          <h3>Green Tea — Bold &amp; Smooth</h3>
+          <p>Crisp green with a neon twist. <span class="badge">All natural • No HFCS</span></p>
+        </article>
+        <article class="poster poster--pink card card--tilt" aria-label="Hibiscus">
+          <h3>Hibiscus — Mango Punch</h3>
+          <p>Tart hibiscus with juicy mango. <span class="badge">Antioxidant-rich</span></p>
+        </article>
+        <article class="poster poster--dark card card--tilt" aria-label="Black Tea">
+          <h3>Black Tea — Street Classic</h3>
+          <p>Deep, clean, and subtly sweet. <span class="badge">Small-batch brewed</span></p>
+        </article>
+        <article class="poster poster--alt card card--tilt" aria-label="White Tea">
+          <h3>White Tea — Silver Rush</h3>
+          <p>Light gold, silky finish. <span class="badge">Handcrafted</span></p>
+        </article>
+      </div>
+      <div class="ingredients-note">
+        <strong>Ingredients:</strong> Water, tea leaves, cane sugar, fruit, natural flavors. No artificial additives. <a href="#contact">Questions?</a>
+      </div>
+    </section>
+
+    <!-- Glass Panels ("Graffi-glass") -->
+    <section id="why" class="glass" aria-labelledby="why-title">
+      <h2 class="section-title" id="why-title">Why Kanty?</h2>
+      <div class="glass__wrap">
+        <div class="glass__card">
+          <h3>All Natural</h3>
+          <p>No high fructose corn syrup, no artificial ingredients. Only honest, real flavor.</p>
+        </div>
+        <div class="glass__card">
+          <h3>Small-Batch Freshness</h3>
+          <p>Hand-brewed in small batches for quality you can taste.</p>
+        </div>
+        <div class="glass__card">
+          <h3>Graffiti Spirit</h3>
+          <p>Bold flavor, street art vibes. Our cans light up your fridge—and your day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order -->
+    <section id="order" class="order" aria-labelledby="order-title">
+      <h2 class="section-title" id="order-title">Order in Coatesville</h2>
+      <form class="order__form" id="kantyForm" autocomplete="off" aria-describedby="order-help">
+        <label>
+          Name
+          <input required type="text" name="name" placeholder="Your name" aria-required="true" />
+        </label>
+        <label>
+          Flavor
+          <select required name="flavor" id="flavor" aria-required="true">
+            <option value="">Select flavor</option>
+            <option>Green Tea — Bold & Smooth</option>
+            <option>Hibiscus — Mango Punch</option>
+            <option>Black Tea — Street Classic</option>
+            <option>White Tea — Silver Rush</option>
+          </select>
+        </label>
+        <label>
+          Quantity
+          <input required type="number" name="quantity" min="1" max="24" value="2" aria-required="true" />
+        </label>
+        <label>
+          Contact (Phone or IG)
+          <input required type="text" name="contact" placeholder="484-753-7531 or @kanticedtea" aria-required="true" />
+        </label>
+        <button class="btn btn-glow" type="submit">Send Order</button>
+        <div id="order-help" class="order-help">We’ll text or DM to confirm your order. Your info stays private.</div>
+        <div id="form-msg" role="alert" class="form-msg" style="display:none"></div>
+      </form>
+      <div class="delivery-info">
+        <span class="icon-delivery" aria-hidden="true">🚗</span> <strong>Fresh delivery in Coatesville</strong> — usually within 24 hours!
+      </div>
+    </section>
+
+    <!-- Contact/FAQ -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact & Info</h2>
+      <div class="contact-ways">
+        <div>
+          <strong>DM Instagram:</strong> <a href="https://instagram.com/kanticedtea" rel="noopener" target="_blank">@kanticedtea</a>
+        </div>
+        <div>
+          <strong>Email:</strong> <a href="mailto:kantytea@gmail.com">kantytea@gmail.com</a>
+        </div>
+        <div>
+          <strong>Phone:</strong> <a href="tel:4847537531">484-753-7531</a>
+        </div>
+      </div>
+      <div class="faq-note">
+        <strong>Got questions?</strong> We’re happy to help. Reach out any time!
+      </div>
+    </section>
   </main>
-  <footer>
-    &copy; 2025 KanT Iced Tea | <a href="terms.html" style="color:#0f0;">Terms</a>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Kanty — All rights reserved. | <a href="#contact">Contact</a></p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
