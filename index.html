@@ -1,31 +1,58 @@
-<div class="modal" id="customerReviewsModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Customer Reviews</h2>
-        <form id="reviewForm" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="review">Review:</label>
-            <textarea id="review" name="review" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-        <div id="reviewsList"></div>
-    </div>
-</div>
-<script>
-function openModal() {
-    document.getElementById('customerReviewsModal').style.display = 'block';
-}
-function closeModal() {
-    document.getElementById('customerReviewsModal').style.display = 'none';
-}
-document.getElementById('reviewForm').onsubmit = function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const review = document.getElementById('review').value;
-    const reviewsList = document.getElementById('reviewsList');
-    reviewsList.innerHTML += `<p><strong>${name}:</strong> ${review}</p>`;
-    this.reset();
-    closeModal();
-};
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KanT Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to KanT</h1>
+        <nav>
+            <ul>
+                <li><a href="#branding">Branding</a></li>
+                <li><a href="#spray-wall">Spray Wall</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Order/Contact</a></li>
+                <li><a href="#reviews">Customer Reviews</a></li>
+                <li><button id="mode-toggle">Toggle Dark/Light Mode</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="branding">
+            <h2>Branding</h2>
+            <p>Your branding content goes here.</p>
+        </section>
+        <section id="spray-wall">
+            <h2>Spray Wall</h2>
+            <p>Your spray wall content goes here.</p>
+        </section>
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>Your gallery content goes here.</p>
+        </section>
+        <section id="contact">
+            <h2>Order/Contact</h2>
+            <form id="contact-form" action="https://formsubmit.co/your-email@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+        <section id="reviews">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-modal">
+                <h3>What Our Customers Say</h3>
+                <p>Your customer reviews go here.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 KanT. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
