@@ -4,34 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanty Homepage</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #61dafb;
+        }
+        form {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #61dafb;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #61dafb;
+        }
+        input[type="submit"] {
+            background-color: #61dafb;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body style="background-color: neon;">
-    <header>
-        <h1 style="font-family: 'Graffiti';">Welcome to Kanty</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Order Form</h2>
-            <form action="https://formsubmit.co/kanticedtea@gmail.com" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="order" placeholder="Your Order" required></textarea>
-                <button type="submit">Submit Order</button>
-            </form>
-        </section>
-        <section>
-            <h2>Review Form</h2>
-            <form action="https://formsubmit.co/kanticedtea@gmail.com" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="review" placeholder="Your Review" required></textarea>
-                <button type="submit">Submit Review</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>Contact us at kanticedtea@gmail.com</p>
-    </footer>
+<body>
+    <h1>Welcome to the Kanty Homepage</h1>
+    <form action="mailto:kanticedtea@gmail.com" method="post" enctype="text/plain">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+        <input type="submit" value="Send">
+    </form>
 </body>
 </html>
