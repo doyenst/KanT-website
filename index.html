@@ -3,49 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>KanT Website</title>
 </head>
 <body>
-    <header>
-        <h1>Branding</h1>
-        <nav>
-            <button id="customer-reviews-btn">Customer Reviews</button>
-            <div id="dark-light-mode">
-                <button id="dark-mode-btn">Dark Mode</button>
-                <button id="light-mode-btn">Light Mode</button>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section id="spray-wall">
-            <h2>Spray Wall</h2>
-        </section>
-        <section id="gallery">
-            <h2>Gallery</h2>
-        </section>
-        <section id="order">
-            <h2>Order</h2>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 KanT-website</p>
-    </footer>
-    <div id="customer-reviews-modal" style="display:none;">
-        <h2>Customer Reviews</h2>
-        <div id="reviews">
-            <p>Review 1: Excellent service!</p>
-            <p>Review 2: Loved the product!</p>
-        </div>
-        <button id="close-modal">Close</button>
-    </div>
-    <script>
-        document.getElementById('customer-reviews-btn').onclick = function() {
-            document.getElementById('customer-reviews-modal').style.display = 'block';
-        };
-        document.getElementById('close-modal').onclick = function() {
-            document.getElementById('customer-reviews-modal').style.display = 'none';
-        };
-    </script>
+    <h1>Welcome to KanT</h1>
+    <form action="mailto:kanticedtea@gmail.com" method="post" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <input type="submit" value="Submit">
+    </form>
+    <form action="https://formsubmit.co/kanticedtea@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou">
+        <input type="hidden" name="_captcha" value="false">
+        <label for="order">Order:</label>
+        <input type="text" id="order" name="order" required>
+        <input type="submit" value="Order">
+    </form>
 </body>
 </html>
