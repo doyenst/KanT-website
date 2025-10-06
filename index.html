@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KanT Website</title>
+    <title>Kanty Homepage</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>Welcome to KanT</h1>
-    <form action="mailto:kanticedtea@gmail.com" method="post" enctype="text/plain">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <input type="submit" value="Submit">
-    </form>
-    <form action="https://formsubmit.co/kanticedtea@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou">
-        <input type="hidden" name="_captcha" value="false">
-        <label for="order">Order:</label>
-        <input type="text" id="order" name="order" required>
-        <input type="submit" value="Order">
-    </form>
+<body style="background-color: neon;">
+    <header>
+        <h1 style="font-family: 'Graffiti';">Welcome to Kanty</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Order Form</h2>
+            <form action="https://formsubmit.co/kanticedtea@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="order" placeholder="Your Order" required></textarea>
+                <button type="submit">Submit Order</button>
+            </form>
+        </section>
+        <section>
+            <h2>Review Form</h2>
+            <form action="https://formsubmit.co/kanticedtea@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="review" placeholder="Your Review" required></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Contact us at kanticedtea@gmail.com</p>
+    </footer>
 </body>
 </html>
