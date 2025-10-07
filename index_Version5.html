@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Kanty — Neon Graffiti Parallax Preview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --pink1: #ff3ea5;
+      --pink2: #ff60bb;
+      --green1: #00ff88;
+      --green2: #19f9d8;
+      --green3: #0aff5a;
+      --black: #121214;
+      --black2: #212124;
+      --bg-dark: #0a0a0a;
+      --white: #fff;
+      --gray: #dedede;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-dark);
+      color: var(--gray);
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .parallax-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .graffiti-layer {
+      position: absolute;
+      width: 130vw; height: 130vh;
+      left: -15vw; top: -15vh;
+      will-change: transform;
+      opacity: 0.75;
+      z-index: 1;
+    }
+    .graffiti-layer2 { opacity: 0.32; z-index: 2; }
+    .graffiti-layer3 { opacity: 0.17; z-index: 3; }
+    /* Main content over parallax */
+    .main-content {
+      position: relative;
+      z-index: 10;
+      padding: 36px 0 0 0;
+      min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo {
+      font-size: 2.4em;
+      font-family: 'Segoe UI Black', 'Arial Black', Arial, sans-serif;
+      color: var(--green1);
+      letter-spacing: 2px;
+      text-shadow: 0 0 18px var(--green1), 0 0 6px var(--pink1);
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .flavors-row {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 38px;
+    }
+    .can-card {
+      background: rgba(18,18,20,0.8);
+      border-radius: 22px;
+      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.36);
+      padding: 30px 24px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 230px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 2;
+    }
+    .can-label {
+      margin-top: 18px;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: var(--green2);
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px var(--green1);
+      text-align: center;
+    }
+    .flavor-note {
+      color: var(--pink2);
+      font-size: .97em;
+      margin-top: 5px;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .flavors-row { flex-direction: column; gap: 18px; }
+      .can-card { width: 95vw; max-width: 340px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Parallax graffiti backgrounds -->
+  <div class="parallax-bg">
+    <!-- Pink graffiti spray splatter -->
+    <svg class="graffiti-layer" width="100%" height="100%" viewBox="0 0 1800 900">
+      <ellipse cx="400" cy="210" rx="260" ry="80" fill="url(#pinkSpray)" />
+      <ellipse cx="1200" cy="760" rx="180" ry="60" fill="url(#pinkSpray2)" />
+      <defs>
+        <radialGradient id="pinkSpray" fx="40%" fy="40%" r="75%">
+          <stop offset="0%" stop-color="#ff3ea5" stop-opacity="0.41"/>
+          <stop offset="80%" stop-color="#ff3ea5" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="pinkSpray2" fx="70%" fy="50%" r="85%">
+          <stop offset="0%" stop-color="#ff60bb" stop-opacity="0.28"/>
+          <stop offset="100%" stop-color="#ff3ea5" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <!-- Abstract tags -->
+      <path d="M270,150 q60,90 150,20 t100,20" stroke="#ff3ea5" stroke-width="8" fill="none" opacity="0.5"/>
+      <path d="M1400,810 q-70,-30 60,-80" stroke="#ff60bb" stroke-width="7" fill="none" opacity="0.4"/>
+    </svg>
+    <!-- Green spray, tags -->
+    <svg class="graffiti-layer graffiti-layer2" width="100%" height="100%" viewBox="0 0 1800 900">
+      <ellipse cx="1000" cy="300" rx="220" ry="60" fill="url(#greenSpray)" />
+      <ellipse cx="600" cy="700" rx="140" ry="40" fill="url(#greenSpray2)" />
+      <defs>
+        <radialGradient id="greenSpray" fx="30%" fy="40%" r="90%">
+          <stop offset="0%" stop-color="#00ff88" stop-opacity="0.19"/>
+          <stop offset="100%" stop-color="#00ff88" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="greenSpray2" fx="70%" fy="70%" r="70%">
+          <stop offset="0%" stop-color="#19f9d8" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#00ff88" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <path d="M1100,370 q70,70 170,-10" stroke="#00ff88" stroke-width="9" fill="none" opacity="0.3"/>
+      <path d="M700,720 q-30,60 60,10" stroke="#0aff5a" stroke-width="7" fill="none" opacity="0.28"/>
+    </svg>
+    <!-- Black, gray shapes for depth -->
+    <svg class="graffiti-layer graffiti-layer3" width="100%" height="100%" viewBox="0 0 1800 900">
+      <ellipse cx="900" cy="450" rx="700" ry="350" fill="url(#blackFade)" />
+      <defs>
+        <radialGradient id="blackFade" cx="50%" cy="50%" r="100%">
+          <stop offset="0%" stop-color="#212124" stop-opacity="0.13"/>
+          <stop offset="60%" stop-color="#121214" stop-opacity="0.23"/>
+          <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <!-- Abstract black/pink intersecting lines -->
+      <path d="M300,200 l1200,500" stroke="#121214" stroke-width="18" opacity="0.08"/>
+      <path d="M400,770 l950,-630" stroke="#ff3ea5" stroke-width="9" opacity="0.13"/>
+    </svg>
+  </div>
+
+  <div class="main-content">
+    <div class="logo">Kanty</div>
+    <div style="font-size:1.45em; font-weight:bold; color:var(--gray); margin-bottom:28px;">
+      Neon Graffiti Parallax + Can Renders Preview
+    </div>
+    <div class="flavors-row">
+      <!-- Green Tea Can -->
+      <div class="can-card">
+        <svg width="80" height="160" viewBox="0 0 80 160" fill="none">
+          <!-- Can body -->
+          <rect x="8" y="16" width="64" height="128" rx="22" fill="#181b1e" stroke="#00ff88" stroke-width="3.2"/>
+          <!-- Graffiti label -->
+          <ellipse cx="40" cy="80" rx="28" ry="38" fill="#00ff8840"/>
+          <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#00ff88" stroke="#212124" stroke-width="1.3" paint-order="stroke" style="letter-spacing:1.2px">K</text>
+          <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">Green</text>
+          <!-- Neon shine -->
+          <ellipse cx="28" cy="40" rx="9" ry="4" fill="#19f9d8" opacity="0.43"/>
+        </svg>
+        <div class="can-label" style="color:var(--green2)">Green Tea</div>
+        <div class="flavor-note">Bold & Smooth</div>
+      </div>
+      <!-- Hibiscus Can -->
+      <div class="can-card">
+        <svg width="80" height="160" viewBox="0 0 80 160" fill="none">
+          <rect x="8" y="16" width="64" height="128" rx="22" fill="#201016" stroke="#ff3ea5" stroke-width="3.2"/>
+          <ellipse cx="40" cy="80" rx="28" ry="38" fill="#ff3ea540"/>
+          <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#ff3ea5" stroke="#181b1e" stroke-width="1.3" paint-order="stroke" style="letter-spacing:1.2px">K</text>
+          <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">Hibiscus</text>
+          <ellipse cx="52" cy="34" rx="8" ry="4" fill="#ff60bb" opacity="0.34"/>
+        </svg>
+        <div class="can-label" style="color:var(--pink1)">Hibiscus</div>
+        <div class="flavor-note">Mango Punch</div>
+      </div>
+      <!-- Black Tea Can -->
+      <div class="can-card">
+        <svg width="80" height="160" viewBox="0 0 80 160" fill="none">
+          <rect x="8" y="16" width="64" height="128" rx="22" fill="#181818" stroke="#9affca" stroke-width="3.2"/>
+          <ellipse cx="40" cy="80" rx="28" ry="38" fill="#21212490"/>
+          <text x="40" y="92" text-anchor="middle" font-size="20" font-family="Arial Black, Arial" fill="#00ff88" stroke="#0a0a0a" stroke-width="1.3" paint-order="stroke" style="letter-spacing:1.2px">K</text>
+          <text x="40" y="114" text-anchor="middle" font-size="11" font-family="Arial Black, Arial" fill="#fff" opacity="0.82">Black</text>
+          <ellipse cx="36" cy="38" rx="7" ry="3" fill="#fff" opacity="0.14"/>
+        </svg>
+        <div class="can-label" style="color:var(--gray)">Black Tea</div>
+        <div class="flavor-note" style="color:var(--green1)">Street Classic</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Parallax effect for all .graffiti-layer elements
+    window.addEventListener('scroll', function() {
+      const scrollY = window.scrollY;
+      document.querySelectorAll('.graffiti-layer').forEach((el, idx) => {
+        const speed = 0.16 + idx * 0.08;
+        el.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
