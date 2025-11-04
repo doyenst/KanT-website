@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: #000;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.06) 0%, transparent 50%),
+        linear-gradient(135deg, #000 40%, #1a0033 100%);
       color: #39ff14;
       font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
       margin: 0;
@@ -18,7 +22,7 @@
       margin: 30px 0 10px 0;
       width: 320px;
       max-width: 80vw;
-      filter: drop-shadow(0 0 24px #ff1fd6);
+      filter: drop-shadow(0 0 24px #ff1fd6) drop-shadow(0 0 12px #8b5cf6);
     }
     h1 {
       font-size: 2.7em;
@@ -27,18 +31,22 @@
       color: #39ff14;
       text-shadow:
         0 0 12px #ff1fd6,
-        0 0 20px #39ff14;
+        0 0 20px #39ff14,
+        0 0 8px #8b5cf6;
       margin-bottom: 18px;
       margin-top: 8px;
     }
     form {
-      background: rgba(34,0,40,0.85);
-      border: 3px solid #39ff14;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(34, 0, 40, 0.85) 50%, rgba(139, 92, 246, 0.15) 100%);
+      border: 3px solid #8b5cf6;
       border-radius: 16px;
       display: inline-block;
       padding: 24px 30px 16px 30px;
       margin-bottom: 40px;
-      box-shadow: 0 0 24px #ff1fd6;
+      box-shadow: 
+        0 0 24px #ff1fd6, 
+        0 0 16px #8b5cf6,
+        0 0 8px #3b82f6 inset;
       max-width: 95vw;
     }
     label {
@@ -49,26 +57,38 @@
       margin-bottom: 4px;
       letter-spacing: 0.5px;
       text-align: left;
+      text-shadow: 0 0 4px #8b5cf6;
     }
     input, textarea {
       width: 96%;
       padding: 10px;
       margin-bottom: 12px;
       border-radius: 6px;
-      border: 2px solid #39ff14;
-      background: #000;
+      border: 2px solid #8b5cf6;
+      background: linear-gradient(135deg, #000 70%, #1a0033 100%);
       color: #39ff14;
       font-size: 1em;
       font-family: inherit;
       outline: none;
       box-sizing: border-box;
+      box-shadow: 0 0 8px #8b5cf6 inset, 0 0 4px #3b82f6;
+      transition: all 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      border-color: #ff1fd6;
+      box-shadow: 
+        0 0 12px #8b5cf6 inset, 
+        0 0 8px #3b82f6,
+        0 0 16px #ff1fd6,
+        0 0 4px #f59e0b;
+      transform: scale(1.02);
     }
     textarea {
       min-height: 80px;
       resize: vertical;
     }
     .neon-btn {
-      background: #39ff14;
+      background: linear-gradient(135deg, #39ff14 30%, #f59e0b 70%);
       color: #000;
       font-weight: bold;
       font-size: 1.1em;
@@ -76,39 +96,74 @@
       border-radius: 8px;
       padding: 10px 38px;
       cursor: pointer;
-      text-shadow: 0 0 10px #ff1fd6;
-      box-shadow: 0 0 16px #ff1fd6, 0 0 6px #39ff14 inset;
-      transition: background 0.16s, color 0.16s;
+      text-shadow: 0 0 10px #ff1fd6, 0 0 6px #8b5cf6;
+      box-shadow: 
+        0 0 16px #ff1fd6, 
+        0 0 8px #39ff14 inset,
+        0 0 4px #8b5cf6;
+      transition: all 0.3s ease;
       margin-top: 6px;
     }
     .neon-btn:hover {
-      background: #ff1fd6;
+      background: linear-gradient(135deg, #ff1fd6 30%, #8b5cf6 50%, #3b82f6 100%);
       color: #000;
-      box-shadow: 0 0 24px #39ff14, 0 0 8px #ff1fd6 inset;
+      text-shadow: 0 0 12px #f59e0b, 0 0 8px #39ff14;
+      box-shadow: 
+        0 0 24px #39ff14, 
+        0 0 16px #ff1fd6 inset,
+        0 0 8px #8b5cf6,
+        0 0 12px #3b82f6;
+      transform: scale(1.05);
     }
     .sample-reviews {
       margin: 36px auto 32px auto;
       max-width: 500px;
     }
     .bubble {
-      background: linear-gradient(135deg, #39ff14 75%, #ff1fd6 100%);
+      background: linear-gradient(135deg, #39ff14 25%, #f59e0b 45%, #3b82f6 65%, #ff1fd6 85%, #8b5cf6 100%);
       color: #000;
       border-radius: 24px;
       margin: 18px 0;
       padding: 18px 24px 12px 24px;
       text-align: left;
-      box-shadow: 0 0 24px #ff1fd6;
+      box-shadow: 
+        0 0 24px #ff1fd6,
+        0 0 16px #8b5cf6,
+        0 0 8px #3b82f6,
+        0 0 4px #f59e0b;
       position: relative;
       font-size: 1.17em;
       font-family: inherit;
       word-break: break-word;
-      border: 2.5px solid #ff1fd6;
+      border: 2.5px solid #8b5cf6;
+      animation: pulseGlow 4s infinite ease-in-out;
+    }
+    
+    @keyframes pulseGlow {
+      0%, 100% { 
+        box-shadow: 
+          0 0 24px #ff1fd6,
+          0 0 16px #8b5cf6,
+          0 0 8px #3b82f6,
+          0 0 4px #f59e0b;
+      }
+      50% { 
+        box-shadow: 
+          0 0 32px #ff1fd6,
+          0 0 24px #8b5cf6,
+          0 0 16px #3b82f6,
+          0 0 8px #f59e0b,
+          0 0 4px #39ff14;
+      }
     }
     .bubble .author {
       font-size: 0.94em;
       font-weight: bold;
-      color: #ff1fd6;
-      text-shadow: 0 0 2px #000;
+      color: #8b5cf6;
+      text-shadow: 
+        0 0 4px #000, 
+        0 0 6px #ff1fd6,
+        0 0 2px #3b82f6;
       margin-top: 10px;
       display: block;
     }
